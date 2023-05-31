@@ -15,6 +15,11 @@ class CreatePesertasTable extends Migration
     {
         Schema::create('pesertas', function (Blueprint $table) {
             $table->id();
+            $table->string('name');
+            $table->string('email')->unique();
+            $table->string('address');
+            $table->string('number')->null();
+            $table->string('password');
             $table->timestamps();
         });
     }

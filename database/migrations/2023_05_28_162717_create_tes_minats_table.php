@@ -15,6 +15,7 @@ class CreateTesMinatsTable extends Migration
     {
         Schema::create('tes_minats', function (Blueprint $table) {
             $table->id();
+            $table->string('hasil');
             $table->timestamps();
         });
     }
