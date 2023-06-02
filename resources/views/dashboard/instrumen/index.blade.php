@@ -12,7 +12,12 @@
 @endif
 
 <div class="pagetitle">
-  <h1>Instrumen Pernyataan</h1>
+  <nav aria-label="breadcrumb">
+      <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a href="/dashboard">Dashboard</a></li>
+        <li class="breadcrumb-item active">Instrumen Pernyataan</li>
+      </ol>
+    </nav>
 </div><!-- End Page Title -->
 
 <section class="section dashboard">
