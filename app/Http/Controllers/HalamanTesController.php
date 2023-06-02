@@ -3,12 +3,14 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Pernyataan;
 
 class HalamanTesController extends Controller
 {
     public function index(){
         return view('tes.index',[
-            'title' => 'Halaman Tes'
+            'title' => 'Halaman Tes',
+            'pernyataan' => Pernyataan::all()
         ]);
     }
 }
