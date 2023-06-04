@@ -9,7 +9,7 @@
     }
 </style>
 
-<div class="container">
+<div class="container ">
   <div class="row justify-content-center">
     <div class="col-md-4">
       
@@ -26,9 +26,8 @@
         <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
       </div>
     @endif
-
     <main  class="form-signin mt-5">
-      <img class="mt-2 mb-2" src="img/logo.png" alt="" width="100" style="margin-left:120px">
+      <img class="mt-2 mb-2 mx-auto d-block" src="img/logo.png" alt="" width="100">
       <h1 class="h4 mb-3 fw-normal text-center ">Please login</h1>
       <form action="/login" method="post">
         @csrf
