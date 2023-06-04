@@ -12,7 +12,7 @@
 @endif
 
 <div class="pagetitle">
-  <h1>Jurusan</h1>
+  <h1>Peserta</h1>
 </div><!-- End Page Title -->
 
 <section class="section dashboard">
