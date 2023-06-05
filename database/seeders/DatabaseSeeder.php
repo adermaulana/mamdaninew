@@ -4,8 +4,8 @@ namespace Database\Seeders;
 use App\Models\User;
 
 use Illuminate\Database\Seeder;
-use Database\Seeders\PernyataanSeeder;
 use Database\Seeders\JurusanSeeder;
+use Database\Seeders\PernyataanSeeder;
 
 class DatabaseSeeder extends Seeder
 {
@@ -17,8 +17,8 @@ class DatabaseSeeder extends Seeder
     public function run()
     {
         // \App\Models\User::factory(10)->create();
-        $this->call(PernyataanSeeder::class);
         $this->call(JurusanSeeder::class);
+        $this->call(PernyataanSeeder::class);
 
         User::create([
             'name' => 'Lisa Efrianti',

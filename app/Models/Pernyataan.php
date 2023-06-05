@@ -14,6 +14,6 @@ class Pernyataan extends Model
 
     public function jurusan()
     {
-        return $this->belongsTo(Jurusan::class, 'jurusan_id');
+        return $this->belongsTo(Jurusan::class, 'jurusan_id','id');
     }
 }

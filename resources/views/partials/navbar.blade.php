@@ -7,7 +7,7 @@
     <div class="collapse navbar-collapse" id="navbarNavDropdown">
       <ul class="navbar-nav ms-auto">
         <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="/">Home</a>
+          <a class="nav-link" aria-current="page" href="/">Home</a>
         </li>
         <li class="nav-item">
           <a class="nav-link" href="/tes">Tes</a>
@@ -23,7 +23,7 @@
             Welcome Back, {{ auth('peserta')->user()->name }}
           </a>
           <ul class="dropdown-menu">
-            <li><a class="dropdown-item" href="/">Home</a></li>
+            <li><a class="dropdown-item" href="/profil">Profil</a></li>
             <li><a class="dropdown-item" href="#">Hasil</a></li>
             <li>
             <form action="/logout" method="post">

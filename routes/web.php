@@ -9,6 +9,7 @@ use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\TesMinatController;
 use App\Http\Controllers\HalamanTesController;
 use App\Http\Controllers\PernyataanController;
+use App\Http\Controllers\UserPesertaController;
 
 /*
 |--------------------------------------------------------------------------
@@ -59,3 +60,6 @@ Route::resource('/dashboard/rapor',RaporController::class)->middleware('auth');
 
 //HalamanTes
 Route::get('/tes',[HalamanTesController::class,'index']);
+
+//HalamanPeserta
+Route::get('/profil',[UserPesertaController::class,'index']);
