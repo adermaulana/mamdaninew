@@ -56,10 +56,9 @@
   }
   
   .red:hover {
-    background-color: white;;
+    background-color: white;
     color: black;
-    border-style: dashed;
-    border: dashed;
+    border: solid;
   }
 
   .i-frame {
