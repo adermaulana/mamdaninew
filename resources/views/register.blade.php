@@ -14,6 +14,7 @@
   <div class="row justify-content-center">
     <div class="col-lg-4">
         <main class="form-registration mt-5">
+        <img class="mt-2 mb-2 mx-auto d-block" src="img/logo.png" alt="" width="100">
             <h1 class="h3 mb-3 fw-normal text-center">Registration Form</h1>
           <form action="/register" method="post">
           @csrf
