@@ -8,4 +8,6 @@ use Illuminate\Database\Eloquent\Model;
 class TesMinat extends Model
 {
     use HasFactory;
+
+    protected $guarded = ['id'];
 }

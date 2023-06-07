@@ -15,7 +15,18 @@ class CreateRaporsTable extends Migration
     {
         Schema::create('rapors', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('peserta_id');
+            $table->float('semester_1');
+            $table->float('semester_2');
+            $table->float('semester_3');
+            $table->float('semester_4');
+            $table->float('semester_5');
+            $table->float('semester_6');
             $table->timestamps();
+
+            $table->foreign('peserta_id')
+            ->references('id')->on('pesertas')
+            ->onDelete('cascade');
         });
     }
 

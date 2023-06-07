@@ -1,5 +1,11 @@
 @extends('layouts.main')
 
+<style>
+   .semester {
+      color:blue;
+   }
+</style>
+
 @section('container')
 
 <section class="">
@@ -31,12 +37,17 @@
   <div class="col-md-4 pb-3">
      <div class="card">
         <div class="card-body">
-          <div class="card-title"><h5>Apakah anda Pendaki Baru? </h5><p>Kami Sarankan agar anda menyimak video <strong>Safety Talk</strong> berikut:</p></div>
+          <div class="card-title"><h5>Data Diri</h5>
+          <span> Nama : <strong>{{ $peserta->name }}</strong></span><br>
+          <span> Email : <strong>{{ $peserta->email }}</strong></span><br>
+          <span> Alamat : <strong>{{ $peserta->address }}</strong></span><br>
+          <span> No Telepon : <strong>{{ $peserta->number }}</strong></span>
+         </div>
           <div class="embed-responsive embed-responsive-16by9">
 
           </div>
           <hr>
-          <div class="card-title">Mohon disimak sampai habis ya, Terima Kasih ^_^</div>
+          <div class="card-title">Terima Kasih Sudah Menggunakan Aplikasi Ini</div>
 
           </div>
      </div>
@@ -44,87 +55,48 @@
   <div class="col-md-8">
      <div class="card">
         <div class="card-body">
-           <div class="row justify-content-center">
-              <div class="col-3">
-                 <img src="/kawasan/images/icon-ciremai.jpg" class="img-fluid">
-              </div>
-           </div>
-           <h4 class="card-title text-center p-3">Balai TN Gunung Ciremai</h4>
-           <div class="row ">
-              <div class="col-md-12">
-                 <form id="form-register">
-                  <input type="hidden" class="form-control" name="application_id" value="008">
-                    <div class="form-row">
-                       <div class="form-group col-md-6">
-                          <label>Nama Depan</label>
-                          <input type="text" placeholder="Ketik Nama Depan" class="form-control" name="first_name" autocomplete="off">
-                       </div>
-                       <div class="form-group col-md-6">
-                          <label>Nama Belakang</label>
-                          <input type="text" placeholder="Ketik Nama Belakang" class="form-control" name="last_name" autocomplete="off">
-                       </div>
-                    </div>
-                    <div class="form-row">
-                       <div class="form-group col-md-12">
-                          <label>Alamat Email</label>
-                          <input type="email" placeholder="Ketik Email" class="form-control" name="email" autocomplete="off" onkeyup="$('[name=username]').val(this.value.split('@')[0])">
-                       </div>
-                    </div>
-                    <div class="form-row">
-                       <div class="form-group col-md-12">
-                          <label>Nomor HP</label>
-                          <input type="number" placeholder="Ketik Nomor HP" class="form-control" name="mobile" autocomplete="off">
-                       </div>
-                    </div>
-                    
-                        
-                        
-                           <input type="text" name="group_id" class="form-control d-none" value="2002200">
-                        
-                    
-                    
-                    <div class="form-row">
-                       <div class="form-group col-md-12">
-                          <label>Kata Sandi</label>
-                          <input type="password" placeholder="Ketik Kata Sandi" class="form-control" name="password" autocomplete="off">
-                       </div>
-                    </div>
-                    
-                    <div class="form-row">
-                       <div class="form-group col-md-12">
-                          <label>Ulangi Kata Sandi</label>
-                          <input type="password" placeholder="Ketik Ulang Kata Sandi" class="form-control" name="password2" autocomplete="off">
-                       </div>
-                    </div>
-                    
-                    <div class="form-row">
-                       <div class="form-group col">
-                          <label>Username</label>
-                          <input type="text" placeholder="Username" class="form-control" name="username" autocomplete="off">
-                       </div>
-                       <!-- <div class="form-group col">
-                          <label></label>
-                          <div class="form-check">
-                             <input class="form-check-input" type="checkbox" value="true" name="enabled">
-                             <label class="form-check-label">
-                             Reset Password
-                             </label>
-                          </div>
-                       </div> -->
-                    </div>
-                    <!-- <div class="form-group form-check">
-                       <input type="checkbox" class="form-check-input" id="exampleCheck1">
-                       <label class="form-check-label" for="exampleCheck1">Check me out</label>
-                    </div> -->
-                    <div class="border border-bottom mb-3"></div>
-                    <div class="row justify-content-center text-center">
-                       <div class="col">
-                          <button type="submit" class="btn btn-primary btn-block">DAFTAR</button>
-                       </div>
-                    </div>
-                 </form>
-              </div>
-           </div>
+           <h1 class="card-title text-center p-3">Nilai Rapor</h1>
+           <hr>
+           <div class="row">
+
+            <div class="col-xs-6 col-sm-6 col-md-6 mt-3">
+            <div class="form-group">
+            <h3>Nilai Semester 1</h3>
+            <h3 class="semester"> {{ $rapor->semester_1 }} </h6>
+            </div>
+            </div>
+            <div class="col-xs-6 col-sm-6 col-md-6 mt-3">
+            <div class="form-group">
+            <h3>Nilai Semester 2</h3>
+            <h3 class="semester"> {{ $rapor->semester_2 }} </h3>
+            </div>
+            </div>
+            <div class="col-xs-6 col-sm-6 col-md-6 mt-3">
+            <div class="form-group">
+            <h3>Nilai Semester 3</h3>
+            <h3 class="semester"> {{ $rapor->semester_3 }} </h3>
+            </div>
+            </div>
+            <div class="col-xs-6 col-sm-6 col-md-6 mt-3">
+            <div class="form-group">
+            <h3>Nilai Semester 4</h3>
+            <h3 class="semester"> {{ $rapor->semester_4 }} </h3>
+            </div>
+            </div>
+            <div class="col-xs-6 col-sm-6 col-md-6 mt-3">
+            <div class="form-group">
+            <h3>Nilai Semester 5</h3>
+            <h3 class="semester"> {{ $rapor->semester_5 }} </h3>
+            </div>
+            </div>
+            <div class="col-xs-6 col-sm-6 col-md-6 mt-3">
+            <div class="form-group">
+            <h3>Nilai Semester 6</h3>
+            <h3 class="semester"> {{ $rapor->semester_6 }} </h3>
+            </div>
+            </div>
+
+            </div>
         </div>
      </div>
   </div>

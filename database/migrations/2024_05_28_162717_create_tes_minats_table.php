@@ -15,8 +15,23 @@ class CreateTesMinatsTable extends Migration
     {
         Schema::create('tes_minats', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('peserta_id');
+            $table->foreignId('jurusan_id');
+            $table->foreignId('pernyataan_id');
             $table->string('hasil');
             $table->timestamps();
+
+            $table->foreign('peserta_id')
+            ->references('id')->on('pesertas')
+            ->onDelete('cascade');
+
+            $table->foreign('jurusan_id')
+            ->references('id')->on('jurusans')
+            ->onDelete('cascade');
+
+            $table->foreign('pernyataan_id')
+            ->references('id')->on('pernyataans')
+            ->onDelete('cascade');
         });
     }
 

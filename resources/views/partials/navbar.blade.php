@@ -10,7 +10,7 @@
           <a class="nav-link" aria-current="page" href="/">Home</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="/tes">Tes</a>
+          <a class="nav-link" href="/halaman-tes/rapor">Tes</a>
         </li>
         <li class="nav-item me-2">
           <a class="nav-link" href="#">Kontak</a>
@@ -24,7 +24,7 @@
           </a>
           <ul class="dropdown-menu">
             <li><a class="dropdown-item" href="/profil">Profil</a></li>
-            <li><a class="dropdown-item" href="#">Hasil</a></li>
+            <!-- <li><a class="dropdown-item" href="#">Hasil</a></li> -->
             <li>
             <form action="/logout" method="post">
                 @csrf

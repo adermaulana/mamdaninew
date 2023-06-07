@@ -20,6 +20,13 @@
     </div>
   </section>
 
+@if ($message = Session::get('error'))
+<div class="alert alert-danger alert-dismissible fade show col-lg-12 mt-2" role="alert">
+        {{ session('error') }}
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+      </div>
+@endif
+
 
   <div class="row">
   <div class="col-5">
@@ -32,23 +39,31 @@
 
 
     <div class="col">
-        <form action="" method="post">
+        <form action="/halaman-tes" method="post">
+          @csrf
             <h1 class="mt-3">Tertarik Dengan Jurusan Apa?</h1>
-            <h6 class="mt-3">Centang Pernyataan yang Menurut Anda Sesuai dengan yang diinginkan!</h6>
+            @foreach($jurusan as $data)
+            <div  class="form-check mt-3 mb-3">
+                <input class="form-check-input" name="jurusan_id" type="checkbox" value="{{ $data->id }}" id="flexCheckChecked">
+                <h6 class="form-check-label" for="flexCheckChecked">
+                {{ $data->name }}
+                </h6>    
+            </div>
+            @endforeach
             <hr>
+            <h6 class="mt-3">Centang Pernyataan yang Menurut Anda Sesuai dengan yang diinginkan!</h6>
             @foreach($pernyataan as $data)
             <div  class="form-check mt-3 mb-3">
-                <input class="form-check-input" type="checkbox" value="{{ $data->nama }}" id="flexCheckChecked">
+                <input class="form-check-input" name="pernyataan_id" type="checkbox" value="{{ $data->id }}" id="flexCheckChecked">
                 <label class="form-check-label" for="flexCheckChecked">
                 {{ $data->nama }}
                 </label>    
             </div>
             @endforeach
-            <input class="btn btn-primary" type="submit" value="Submit">
+            <input class="btn btn-primary" type="submit" value="Kirim">
         </form>
     </div>
   </div>
-
 
 
 @endsection

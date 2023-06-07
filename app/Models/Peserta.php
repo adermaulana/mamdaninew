@@ -10,4 +10,5 @@ class Peserta extends Authenticatable
 {
     use HasFactory;
     protected $guarded = ['id'];
+
 }
