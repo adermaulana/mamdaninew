@@ -13,7 +13,8 @@ class UserPesertaController extends Controller
             'title' => 'My Profile',
             'subtitle' => 'My Profile',
             'peserta' => Peserta::where('id', auth('peserta')->user()->id)->first(),
-            'rapor' => Rapor::where('peserta_id', auth('peserta')->user()->id)->first()
+            'rapor' => Rapor::where('peserta_id', auth('peserta')->user()->id)->first(),
+            'active' => 'register'
         ]);
     }
 }

@@ -11,6 +11,10 @@ use App\Http\Controllers\HalamanTesController;
 use App\Http\Controllers\PernyataanController;
 use App\Http\Controllers\UserPesertaController;
 
+//Models
+use App\Models\Jurusan;
+use App\Models\Pernyataan;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -24,7 +28,18 @@ use App\Http\Controllers\UserPesertaController;
 
 Route::get('/', function () {
     return view('index',[
-        'title' => 'Rekomendasi Jurusan SMKN 8 Jeneponto'
+        'title' => 'Rekomendasi Jurusan SMKN 8 Jeneponto',
+        'active' => 'home'
+    ]);
+});
+
+Route::get('/index2', function () {
+    return view('tes.index2',[
+        'title' => 'Rekomendasi Jurusan SMKN 8 Jeneponto',
+        'subtitle' => 'Rekomendasi Jurusan SMKN 8 Jeneponto',
+        'jurusan' => Jurusan::all(),
+        'pernyataan' => Pernyataan::all(),
+        'active' => 'home'
     ]);
 });
 
@@ -67,4 +82,4 @@ Route::get('/halaman-tes/hasil',[HalamanTesController::class,'hasil'])->middlewa
 
 
 //HalamanPeserta
-Route::get('/profil',[UserPesertaController::class,'index']);
+Route::get('/profil',[UserPesertaController::class,'index'])->middleware(['auth:peserta,web']);

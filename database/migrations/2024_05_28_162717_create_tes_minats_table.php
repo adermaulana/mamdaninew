@@ -18,7 +18,7 @@ class CreateTesMinatsTable extends Migration
             $table->foreignId('peserta_id');
             $table->foreignId('jurusan_id');
             $table->foreignId('pernyataan_id');
-            $table->string('hasil');
+            $table->string('hasil')->nullable();
             $table->timestamps();
 
             $table->foreign('peserta_id')

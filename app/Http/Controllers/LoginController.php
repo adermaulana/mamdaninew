@@ -4,12 +4,15 @@ namespace App\Http\Controllers;
 
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
+use App\Models\Peserta;
+use App\Models\Rapor;
 
 class LoginController extends Controller
 {
     public function index(){
         return view('login',[
-            'title' => 'Login'
+            'title' => 'Login',
+            'active' => 'login'
         ]);
     }
 
@@ -30,6 +33,7 @@ class LoginController extends Controller
 
             return redirect()->intended('/')->with('success','Berhasil login!');
         }
+
 
         return back()->with('loginError','Login Failed');
 

@@ -7,13 +7,13 @@
     <div class="collapse navbar-collapse" id="navbarNavDropdown">
       <ul class="navbar-nav ms-auto">
         <li class="nav-item">
-          <a class="nav-link" aria-current="page" href="/">Home</a>
+          <a class="nav-link {{ ($active === "home") ? 'active' : '' }}" aria-current="page" href="/">Home</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="/halaman-tes/rapor">Tes</a>
+          <a class="nav-link {{ ($active === "tes") ? 'active' : '' }}" href="/halaman-tes/rapor">Tes</a>
         </li>
         <li class="nav-item me-2">
-          <a class="nav-link" href="#">Kontak</a>
+          <a class="nav-link {{ ($active === "kontak") ? 'active' : '' }}" href="#">Kontak</a>
         </li>
       </ul>
       @auth('peserta')

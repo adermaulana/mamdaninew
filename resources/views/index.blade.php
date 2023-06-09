@@ -14,7 +14,7 @@
           untuk teman - teman yang ingin mendaftarkan
           diri pada kejurusan <br> yang di inginkan di SMKN 8 Jeneponto
         </p>
-        <a class="button btn red" href="/tes">Coba Tes Sekarang</a>
+        <a class="button btn red" href="/halaman-tes/rapor">Coba Tes Sekarang</a>
         <div class="row mt-4">
             <div class="col col-3">
                 <h2>300</h2>

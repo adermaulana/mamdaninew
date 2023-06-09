@@ -17,7 +17,8 @@ class HalamanTesController extends Controller
 
         return view('tes.rapor',[
             'title' => 'Halaman Input Nilai Rapor',
-            'subtitle' => 'Input Nilai Rapor'
+            'subtitle' => 'Input Nilai Rapor',
+            'active' => 'tes'
         ]);
     }
 
@@ -27,8 +28,7 @@ class HalamanTesController extends Controller
             'semester_2' => 'required',
             'semester_3' => 'required',
             'semester_4' => 'required',
-            'semester_5' => 'required',
-            'semester_6' => 'required'
+            'semester_5' => 'required'
 
         ]);
         
@@ -37,7 +37,7 @@ class HalamanTesController extends Controller
 
         $existingRapor = Rapor::where('peserta_id', Auth::guard('peserta')->id())->first();
         if ($existingRapor) {
-            return redirect('halaman-tes')->with('error', 'Anda telah melakukan input data rapor sebelumnya, Sekarang Anda Diarahkan Ke Halaman Tes Pernyataan');
+            return redirect('halaman-tes')->with('success', 'Anda telah melakukan input data rapor sebelumnya, Sekarang Anda Diarahkan Ke Halaman Tes Pernyataan');
         }
 
         Rapor::create($validatedData);
@@ -61,7 +61,8 @@ class HalamanTesController extends Controller
             'title' => 'Halaman Tes',
             'subtitle' => 'Tes Jurusan',
             'pernyataan' => Pernyataan::all(),
-            'jurusan' => Jurusan::all()
+            'jurusan' => Jurusan::all(),
+            'active' => 'tes'
         ]);
     }
 
@@ -88,11 +89,14 @@ class HalamanTesController extends Controller
         } 
 
         $peserta = Peserta::where('id', auth('peserta')->user()->id)->first();
+        $hasil = TesMinat::where('peserta_id', auth('peserta')->user()->id)->first();
 
         return view('tes.hasil',[
             'title' => 'Halaman Hasil Tes Jurusan',
             'subtitle' => 'Hasil Tes Jurusan',
-            'peserta' => $peserta
+            'peserta' => $peserta,
+            'hasil' => $hasil,
+            'active' => 'hasil'
         ]);
     }
 }

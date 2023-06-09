@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 use App\Models\Peserta;
+use App\Models\TesMinat;
 use Illuminate\Support\Facades\Hash;
 
 use Illuminate\Http\Request;
@@ -10,7 +11,8 @@ class RegisterController extends Controller
 {
     public function index(){
         return view('register',[
-            'title' => 'Register'
+            'title' => 'Register',
+            'active' => 'register'
         ]);
     }
 
