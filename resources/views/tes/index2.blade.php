@@ -73,7 +73,7 @@
                     <tbody>
                         @foreach($pernyataan as $data)
                         <tr>
-                            <td> {{ $data->iteration }} </td>
+                            <td> {{ $loop->iteration }} </td>
                             <td> {{ $data->nama }} </td>
                             <td><input class="form-check-input" name="pernyataan_id" type="radio" value="{{ $data->id }}" id="flexCheckChecked"></td>
                             <td><input class="form-check-input" name="pernyataan_id" type="radio" value="0" id="flexCheckChecked"></td>
