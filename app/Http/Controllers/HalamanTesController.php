@@ -29,7 +29,6 @@ class HalamanTesController extends Controller
             'semester_3' => 'required',
             'semester_4' => 'required',
             'semester_5' => 'required'
-
         ]);
         
         $validatedData['peserta_id'] = auth('peserta')->user()->id;

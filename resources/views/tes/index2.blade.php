@@ -61,7 +61,7 @@
             <div class="row">
               <div class="col">
                 <h6 class="mt-3">Centang Pernyataan yang Menurut Anda Sesuai dengan yang diinginkan!</h6>
-                <table class="col">
+                <table class="col table">
                     <thead>
                         <tr>
                             <th>No</th>
@@ -75,8 +75,8 @@
                         <tr>
                             <td> {{ $loop->iteration }} </td>
                             <td> {{ $data->nama }} </td>
-                            <td><input class="form-check-input" name="pernyataan_id" type="radio" value="{{ $data->id }}" id="flexCheckChecked"></td>
-                            <td><input class="form-check-input" name="pernyataan_id" type="radio" value="0" id="flexCheckChecked"></td>
+                            <td><input class="form-check-input" name="pernyataan_id" type="checkbox" value="{{ $data->id }}" id="flexCheckChecked"></td>
+                            <td><input class="form-check-input ms-3" name="pernyataan_id" type="checkbox" value="0" id="flexCheckChecked"></td>
                         </tr>
                         @endforeach
                     </tbody>
@@ -112,4 +112,5 @@
 
   checkboxes.on('change', updateCheckboxes);
 });
+
 </script>

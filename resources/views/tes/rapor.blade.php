@@ -42,7 +42,8 @@
         <form action="/halaman-tes/rapor" method="post">
             @csrf
             <h1 class="mt-3">Masukkan Nilai Rapor</h1>
-            <h6 class="mt-3">Inputkan Nilai Rata-Rata Rapor Semester Kalian!</h6>
+            <h6 class="mt-3">Masukkan Nilai Rata-Rata Rapor Semester Kalian!</h6>
+            <p class="text-danger">Input nilai rapor hanya dilakukan sekali jadi perhatikan baik - baik nilai yang dimasukkan!</p>
             <hr>
 
             <div class="row">

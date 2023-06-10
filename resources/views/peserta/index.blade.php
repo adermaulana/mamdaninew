@@ -62,37 +62,55 @@
             <div class="col-xs-6 col-sm-6 col-md-6 mt-3">
             <div class="form-group">
             <h3>Nilai Semester 1</h3>
-            <h3 class="semester"> {{ $rapor->semester_1 }} </h6>
+
+            @if(empty($rapor->semester_1))  
+            <h3 class="text-danger">0</h3>
+            @else
+            <h3 class="semester"> {{ $rapor->semester_1 }} </h3>
+            @endif
+
             </div>
             </div>
             <div class="col-xs-6 col-sm-6 col-md-6 mt-3">
             <div class="form-group">
             <h3>Nilai Semester 2</h3>
+
+            @if(empty($rapor->semester_2) )
+            <h3 class="text-danger">0</h3>
+            @else
             <h3 class="semester"> {{ $rapor->semester_2 }} </h3>
+            @endif
+
             </div>
             </div>
             <div class="col-xs-6 col-sm-6 col-md-6 mt-3">
             <div class="form-group">
             <h3>Nilai Semester 3</h3>
+            @if(empty($rapor->semester_3) )
+            <h3 class="text-danger">0</h3>
+            @else
             <h3 class="semester"> {{ $rapor->semester_3 }} </h3>
+            @endif
             </div>
             </div>
             <div class="col-xs-6 col-sm-6 col-md-6 mt-3">
             <div class="form-group">
             <h3>Nilai Semester 4</h3>
+            @if(empty($rapor->semester_4) )
+            <h3 class="text-danger">0</h3>
+            @else
             <h3 class="semester"> {{ $rapor->semester_4 }} </h3>
+            @endif
             </div>
             </div>
             <div class="col-xs-6 col-sm-6 col-md-6 mt-3">
             <div class="form-group">
             <h3>Nilai Semester 5</h3>
+            @if(empty($rapor->semester_5) )
+            <h3 class="text-danger">0</h3>
+            @else
             <h3 class="semester"> {{ $rapor->semester_5 }} </h3>
-            </div>
-            </div>
-            <div class="col-xs-6 col-sm-6 col-md-6 mt-3">
-            <div class="form-group">
-            <h3>Nilai Semester 6</h3>
-            <h3 class="semester"> {{ $rapor->semester_6 }} </h3>
+            @endif
             </div>
             </div>
 

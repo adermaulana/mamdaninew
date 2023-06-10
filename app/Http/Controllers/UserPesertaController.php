@@ -9,6 +9,7 @@ use App\Models\Rapor;
 class UserPesertaController extends Controller
 {
     public function index(){
+        
         return view('peserta.index',[
             'title' => 'My Profile',
             'subtitle' => 'My Profile',
