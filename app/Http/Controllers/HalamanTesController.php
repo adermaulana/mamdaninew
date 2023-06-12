@@ -36,7 +36,7 @@ class HalamanTesController extends Controller
 
         $existingRapor = Rapor::where('peserta_id', Auth::guard('peserta')->id())->first();
         if ($existingRapor) {
-            return redirect('halaman-tes')->with('success', 'Anda telah melakukan input data rapor sebelumnya, Sekarang Anda Diarahkan Ke Halaman Tes Pernyataan');
+            return redirect('halaman-tes')->with('error', 'Anda telah melakukan input data rapor sebelumnya, Sekarang Anda Diarahkan Ke Halaman Tes Pernyataan');
         }
 
         Rapor::create($validatedData);
@@ -66,7 +66,7 @@ class HalamanTesController extends Controller
     }
 
     public function storepernyataan(Request $request){
-        
+
         $validatedData = $request->validate([
             'pernyataan_id' => 'required',
             'jurusan_id' => 'required',
@@ -88,7 +88,7 @@ class HalamanTesController extends Controller
         } 
 
         $peserta = Peserta::where('id', auth('peserta')->user()->id)->first();
-        $hasil = TesMinat::where('peserta_id', auth('peserta')->user()->id)->first();
+        $hasil = TesMinat::latest('peserta_id', auth('peserta')->user()->id)->first();
 
         return view('tes.hasil',[
             'title' => 'Halaman Hasil Tes Jurusan',

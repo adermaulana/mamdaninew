@@ -49,25 +49,30 @@
       <form action="/halaman-tes" method="post">
         @csrf
           <h1 class="mt-3">Tertarik Dengan Jurusan Apa?</h1>
+          @error('jurusan_id')
+          <div class="alert alert-danger mt-1 mb-1">{{ $message }}</div>
+          @enderror 
           @foreach($jurusan as $data)
           <div  class="form-check mt-3 mb-3">
               <input class="form-check-input jurusan-checkbox" name="jurusan_id" type="checkbox" value="{{ $data->id }}" id="flexCheckChecked">
               <h6 class="form-check-label" for="flexCheckChecked">
               {{ $data->name }}
-              </h6>    
+              </h6>  
           </div>
-          @endforeach
+          @endforeach 
           <hr>
           <div class="row">
             <div class="col">
-              <h6 class="mt-3">Centang Pernyataan yang Menurut Anda Sesuai dengan yang diinginkan!</h6>
+              <h6 class="mt-3">Centang Pernyataan yang Menurut Anda Sesuai dengan yang diinginkan! Jika tidak cukup abaikan!</h6>
+              @error('pernyataan_id')
+              <div class="alert alert-danger mt-1 mb-1">{{ $message }}</div>
+              @enderror
               <table class="col table">
                   <thead>
                       <tr>
                           <th>No</th>
                           <th>Pernyataan</th>
                           <th>Ya</th>
-                          <th>Tidak</th>
                       </tr>
                   </thead>
                   <tbody>
@@ -76,11 +81,11 @@
                           <td> {{ $loop->iteration }} </td>
                           <td> {{ $data->nama }} </td>
                           <td><input class="form-check-input" name="pernyataan_id" type="checkbox" value="{{ $data->id }}" id="flexCheckChecked"></td>
-                          <td><input class="form-check-input ms-3" name="pernyataan_id" type="checkbox" value="0" id="flexCheckChecked"></td>
                       </tr>
                       @endforeach
                   </tbody>
               </table>
+              
               <input class="btn btn-primary" type="submit" value="Kirim">
             </div>
           </div>
