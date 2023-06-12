@@ -33,15 +33,6 @@ Route::get('/', function () {
     ]);
 });
 
-Route::get('/index2', function () {
-    return view('tes.index2',[
-        'title' => 'Rekomendasi Jurusan SMKN 8 Jeneponto',
-        'subtitle' => 'Rekomendasi Jurusan SMKN 8 Jeneponto',
-        'jurusan' => Jurusan::all(),
-        'pernyataan' => Pernyataan::all(),
-        'active' => 'home'
-    ]);
-});
 
 Route::get('/dashboard', function () {
     return view('dashboard.index',[

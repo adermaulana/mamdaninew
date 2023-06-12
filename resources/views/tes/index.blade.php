@@ -46,53 +46,46 @@
 
 
     <div class="col">
-        <form action="/halaman-tes" method="post">
-          @csrf
-            <h1 class="mt-3">Tertarik Dengan Jurusan Apa?</h1>
-            @foreach($jurusan as $data)
-            <div  class="form-check mt-3 mb-3">
-                <input class="form-check-input jurusan-checkbox" name="jurusan_id" type="checkbox" value="{{ $data->id }}" id="flexCheckChecked">
-                <h6 class="form-check-label" for="flexCheckChecked">
-                {{ $data->name }}
-                </h6>    
+      <form action="/halaman-tes" method="post">
+        @csrf
+          <h1 class="mt-3">Tertarik Dengan Jurusan Apa?</h1>
+          @foreach($jurusan as $data)
+          <div  class="form-check mt-3 mb-3">
+              <input class="form-check-input jurusan-checkbox" name="jurusan_id" type="checkbox" value="{{ $data->id }}" id="flexCheckChecked">
+              <h6 class="form-check-label" for="flexCheckChecked">
+              {{ $data->name }}
+              </h6>    
+          </div>
+          @endforeach
+          <hr>
+          <div class="row">
+            <div class="col">
+              <h6 class="mt-3">Centang Pernyataan yang Menurut Anda Sesuai dengan yang diinginkan!</h6>
+              <table class="col table">
+                  <thead>
+                      <tr>
+                          <th>No</th>
+                          <th>Pernyataan</th>
+                          <th>Ya</th>
+                          <th>Tidak</th>
+                      </tr>
+                  </thead>
+                  <tbody>
+                      @foreach($pernyataan as $data)
+                      <tr>
+                          <td> {{ $loop->iteration }} </td>
+                          <td> {{ $data->nama }} </td>
+                          <td><input class="form-check-input" name="pernyataan_id" type="checkbox" value="{{ $data->id }}" id="flexCheckChecked"></td>
+                          <td><input class="form-check-input ms-3" name="pernyataan_id" type="checkbox" value="0" id="flexCheckChecked"></td>
+                      </tr>
+                      @endforeach
+                  </tbody>
+              </table>
+              <input class="btn btn-primary" type="submit" value="Kirim">
             </div>
-            @endforeach
-            <hr>
-            <div class="row">
-              <div class="col">
-                <h6 class="mt-3">Centang Pernyataan yang Menurut Anda Sesuai dengan yang diinginkan!</h6>
-                @foreach($pernyataan as $data)
-                <div  class="mt-3 mb-3">
-                    <h6 class="form-check-label" for="flexCheckChecked">
-                    {{ $data->nama }}
-                    </h6>    
-                </div>
-                @endforeach
-                <input class="btn btn-primary" type="submit" value="Kirim">
-              </div>
-              <div class="col-1">
-                  <h6 class="mt-3">Ya</h6>
-                  @foreach($pernyataan as $data)
-                  <div  class="form-check mt-3 mb-3">
-                      <input class="form-check-input" name="pernyataan_id" type="radio" value="{{ $data->id }}" id="flexCheckChecked">
-                      <label class="form-check-label" for="flexCheckChecked">
-                      </label>    
-                  </div>
-                  @endforeach
-              </div>
-              <div class="col-1">
-                  <h6 class="mt-3">Tidak</h6>
-                  @foreach($pernyataan as $data)
-                  <div  class="form-check mt-3 mb-3">
-                      <input class="form-check-input" name="pernyataan_id" type="radio" value="0" id="flexCheckChecked">
-                      <label class="form-check-label" for="flexCheckChecked">
-                      </label>    
-                  </div>
-                  @endforeach
-              </div>
-            </div>
-        </form>
-    </div>
+          </div>
+      </form>
+  </div>
   </div>
 
 
@@ -119,4 +112,13 @@
 
   checkboxes.on('change', updateCheckboxes);
 });
+</script>
+
+<script>
+  $(document).ready(function() {
+      $('.myCheckbox').change(function() {
+          var checkboxIndex = $(this).index() + 1;
+          $('.myCheckbox:lt(' + checkboxIndex + ')').prop('disabled', $(this).is(':checked'));
+      });
+  });
 </script>
