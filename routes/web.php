@@ -14,6 +14,9 @@ use App\Http\Controllers\UserPesertaController;
 //Models
 use App\Models\Jurusan;
 use App\Models\Pernyataan;
+use App\Models\Peserta;
+use App\Models\TesMinat;
+use App\Models\Rapor;
 
 /*
 |--------------------------------------------------------------------------
@@ -35,9 +38,21 @@ Route::get('/', function () {
 
 
 Route::get('/dashboard', function () {
+
+    $pernyataan = Pernyataan::all();
+    $jumlahpernyataan = $pernyataan->count('nama');
+    $jurusan = Jurusan::all();
+    $jumlahjurusan = $jurusan->count('name');
+    $peserta = Peserta::all();
+    $jumlahpeserta = $peserta->count('name');
+    $tesminat = TesMinat::all();
+    $jumlahtesminat = $tesminat->count('pernyataan_id');
+    $rapor = Rapor::all();
+    $jumlahrapor = $rapor->count('id');
+
     return view('dashboard.index',[
         'title' => 'Admin Rekomendasi Jurusan SMKN 8 Jeneponto'
-    ]);
+    ],compact('jumlahpernyataan','jumlahjurusan','jumlahpeserta','jumlahtesminat','jumlahrapor'));
 })->middleware('auth');
 
 //Login

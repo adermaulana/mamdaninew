@@ -41,7 +41,7 @@
         @foreach ($minat as $data)
           <tr>
             <td>{{ $loop->iteration }}</td>
-            <td>{{ $data->hasil }} </td>
+            <td>{{ $data->jurusan->name }} </td>
             <td>
 										<div class="actions">
 											<a class="btn btn-success" href="/dashboard/minat/{{ $data->id }}/edit">

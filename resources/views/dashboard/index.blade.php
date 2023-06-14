@@ -37,7 +37,7 @@
                   <i class="bi bi-file-text"></i>
                 </div>
                 <div class="ps-3">
-                  <h6>Tes</h6>
+                  <h6>{{ $jumlahpernyataan }}</h6>
                 </div>
               </div>
             </div>
@@ -57,7 +57,7 @@
                   <i class="bi bi-file-text"></i>
                 </div>
                 <div class="ps-3">
-                  <h6>Tes</h6>
+                  <h6>{{ $jumlahtesminat }}</h6>
                 </div>
               </div>
             </div>
@@ -77,7 +77,7 @@
                   <i class="bi bi-people"></i>
                 </div>
                 <div class="ps-3">
-                  <h6>Tes</h6>
+                  <h6>{{ $jumlahpeserta }}</h6>
                 </div>
               </div>
             </div>
@@ -97,7 +97,7 @@
                   <i class="bi bi-tags-fill"></i>
                 </div>
                 <div class="ps-3">
-                  <h6>Tes</h6>
+                  <h6>{{ $jumlahjurusan }}</h6>
                 </div>
               </div>
             </div>
@@ -116,7 +116,7 @@
                   <i class="bi bi-layout-text-window-reverse"></i>
                 </div>
                 <div class="ps-3">
-                  <h6>Tes</h6>
+                  <h6>{{ $jumlahrapor }}</h6>
                 </div>
               </div>
             </div>
