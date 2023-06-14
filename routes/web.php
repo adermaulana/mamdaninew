@@ -67,7 +67,7 @@ Route::resource('/dashboard/rapor',RaporController::class)->middleware('auth');
 //HalamanTes
 Route::get('/halaman-tes',[HalamanTesController::class,'tes'])->middleware(['auth:peserta,web']);;
 Route::post('/halaman-tes',[HalamanTesController::class,'storepernyataan'])->middleware(['auth:peserta,web']);;
-Route::get('/halaman-tes/rapor',[HalamanTesController::class,'rapor'])->middleware(['auth:peserta,web']);
+Route::get('/halaman-tes/rapor',[HalamanTesController::class,'rapor'])->middleware(['auth:peserta']);
 Route::post('/halaman-tes/rapor',[HalamanTesController::class,'store'])->middleware(['auth:peserta,web']);
 Route::get('/halaman-tes/hasil',[HalamanTesController::class,'hasil'])->middleware(['auth:peserta,web']);
 
