@@ -57,8 +57,8 @@ class JurusanController extends Controller
     {
         $jurusan = Jurusan::FindOrFail($id);
         return view('dashboard.jurusan.edit',[
-            'title' => "Ubah Jurusan",
-            'jurusan' => $jurusan
+        'title' => "Ubah Jurusan",
+        'jurusan' => $jurusan
         ]);
     }
 

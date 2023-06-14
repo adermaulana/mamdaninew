@@ -47,22 +47,23 @@ class HalamanTesController extends Controller
 
     public function tes(Request $request){
 
-
-        if (!$request->session()->has('form_filled')) {
-            return redirect('halaman-tes/rapor')->with('error', 'Silakan isi Nilai Rapor terlebih dahulu.');
-        }
-
         $pesertaId = Auth::guard('peserta')->id();
 
         $rapor = Rapor::where('peserta_id', $pesertaId)->first();
 
-        return view('tes.index',[
-            'title' => 'Halaman Tes',
-            'subtitle' => 'Tes Jurusan',
-            'pernyataan' => Pernyataan::all(),
-            'jurusan' => Jurusan::all(),
-            'active' => 'tes'
-        ]);
+        if(!empty($rapor)){
+            return view('tes.index',[
+                'title' => 'Halaman Tes',
+                'subtitle' => 'Tes Jurusan',
+                'pernyataan' => Pernyataan::all(),
+                'jurusan' => Jurusan::all(),
+                'active' => 'tes'
+            ]);
+            
+        } else if(!$request->session()->has('form_filled')) {
+            return redirect('halaman-tes/rapor')->with('error', 'Silakan isi Nilai Rapor terlebih dahulu.');
+        }
+
     }
 
     public function storepernyataan(Request $request){
@@ -71,6 +72,7 @@ class HalamanTesController extends Controller
             'pernyataan_id' => 'required',
             'jurusan_id' => 'required',
         ]);
+
 
         $validatedData['peserta_id'] = auth('peserta')->user()->id;
         $request->session()->put('form_filled', true);
@@ -88,7 +90,7 @@ class HalamanTesController extends Controller
         } 
 
         $peserta = Peserta::where('id', auth('peserta')->user()->id)->first();
-        $hasil = TesMinat::latest('peserta_id', auth('peserta')->user()->id)->first();
+        $hasil = TesMinat::where('peserta_id', auth('peserta')->user()->id)->latest()->first();
 
         return view('tes.hasil',[
             'title' => 'Halaman Hasil Tes Jurusan',
