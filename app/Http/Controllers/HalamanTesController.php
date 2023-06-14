@@ -15,6 +15,13 @@ class HalamanTesController extends Controller
 
     public function rapor(){
 
+        if (Auth::check()) {
+            // Jika auth admin, tampilkan pemberitahuan
+            session()->flash('error', 'Anda adalah Admin tidak bisa melakukan tes!');
+            return redirect('/');
+
+        }
+
         return view('tes.rapor',[
             'title' => 'Halaman Input Nilai Rapor',
             'subtitle' => 'Input Nilai Rapor',

@@ -1,8 +1,18 @@
 @extends('layouts.main')
 
 @section('container')
+
 <section class="hero">
+
       <div class="intro-text mt-5">
+
+        @if ($message = Session::get('error'))
+        <div class="alert alert-danger alert-dismissible fade show col-lg-10" role="alert">
+                {{ session('error') }}
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+              </div>
+        @endif
+
         <h1>
           <span class="hear"> Rekomendasi Penentuan
             Konsentrasi Jurusan </span> <br />
