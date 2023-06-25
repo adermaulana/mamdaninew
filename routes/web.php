@@ -1,22 +1,23 @@
 <?php
 
+use App\Models\Rapor;
+use App\Models\Jurusan;
+use App\Models\Peserta;
+use App\Models\TesMinat;
+use App\Models\Pernyataan;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\FISController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\RaporController;
 use App\Http\Controllers\JurusanController;
+
+//Models
 use App\Http\Controllers\PesertaController;
 use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\TesMinatController;
 use App\Http\Controllers\HalamanTesController;
 use App\Http\Controllers\PernyataanController;
 use App\Http\Controllers\UserPesertaController;
-
-//Models
-use App\Models\Jurusan;
-use App\Models\Pernyataan;
-use App\Models\Peserta;
-use App\Models\TesMinat;
-use App\Models\Rapor;
 
 /*
 |--------------------------------------------------------------------------
@@ -89,3 +90,6 @@ Route::get('/halaman-tes/hasil',[HalamanTesController::class,'hasil'])->middlewa
 
 //HalamanPeserta
 Route::get('/profil',[UserPesertaController::class,'index'])->middleware(['auth:peserta,web']);
+
+//TesMetode
+Route::get('/tes-metode',[FISController::class,'test']);

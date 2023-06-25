@@ -49,6 +49,8 @@
       <form action="/halaman-tes" method="post">
         @csrf
           <h1 class="mt-3">Tertarik Dengan Jurusan Apa?</h1>
+          <h6 class="mt-3">Maksimal memilih 3 jurusan!</h6>
+          <hr>
           @error('jurusan_id')
           <div class="alert alert-danger mt-1 mb-1">{{ $message }}</div>
           @enderror 
@@ -63,7 +65,7 @@
           <hr>
           <div class="row">
             <div class="col">
-              <h6 class="mt-3">Centang Pernyataan yang Menurut Anda Sesuai dengan yang diinginkan! Jika tidak cukup abaikan!</h6>
+              <h6 class="mt-3">Centang Pernyataan yang Menurut Anda Sesuai dengan yang diinginkan <b>( Minimal 5 )</b> ! Jika tidak cukup abaikan!</h6>
               @error('pernyataan_id')
               <div class="alert alert-danger mt-1 mb-1">{{ $message }}</div>
               @enderror
@@ -71,7 +73,8 @@
                   <thead>
                       <tr>
                           <th>No</th>
-                          <th>Pernyataan</th>
+                          <th
+                          >Pernyataan</th>
                           <th>Ya</th>
                       </tr>
                   </thead>
@@ -80,13 +83,13 @@
                       <tr>
                           <td> {{ $loop->iteration }} </td>
                           <td> {{ $data->nama }} </td>
-                          <td><input class="form-check-input" name="pernyataan_id" type="checkbox" value="{{ $data->id }}" id="flexCheckChecked"></td>
+                          <td><input class="form-check-input pernyataan-checkbox" name="pernyataan_id" type="checkbox" value="{{ $data->id }}" id="flexCheckChecked"></td>
                       </tr>
                       @endforeach
                   </tbody>
               </table>
               
-              <input class="btn btn-primary" type="submit" value="Kirim">
+              <input class="btn btn-primary" onclick="validateForm()" type="submit" id="submitButton" value="Kirim" disabled>
             </div>
           </div>
       </form>
@@ -121,9 +124,21 @@
 
 <script>
   $(document).ready(function() {
-      $('.myCheckbox').change(function() {
-          var checkboxIndex = $(this).index() + 1;
-          $('.myCheckbox:lt(' + checkboxIndex + ')').prop('disabled', $(this).is(':checked'));
-      });
-  });
+  var checkboxes = $('.pernyataan-checkbox');
+  var maxAllowed = 5;
+
+  function updateCheckboxes() {
+    var checkedCount = $('.pernyataan-checkbox:checked').length;
+    var submitButton = $('#submitButton');
+    checkboxes.each(function() {
+      if (checkedCount >= maxAllowed && !$(this).is(':checked')) {
+        submitButton.prop('disabled', false);
+      } else if ( checkedCount < maxAllowed && !$(this).is(':checked')){
+        submitButton.prop('disabled', true);
+      }
+    });
+  }
+
+  checkboxes.on('change', updateCheckboxes);
+});
 </script>
