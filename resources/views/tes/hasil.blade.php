@@ -47,10 +47,39 @@
             <h6 class="mt-3">Setelah Mengisi Pernyataan Yang Ada, berikut Hasil Tes Jurusan Anda :</h6>
             <hr>
             <span>Dengan Memilih Pernyataan Berikut : </span><br>
-            <span> <strong>{{ $hasil->pernyataan->nama }}</strong> </span>
-            <p class="mt-3"> Kamu Cocok Di Jurusan </p>
-            <h3> {{ $hasil->jurusan->name }} </h3>
-            
+            <table class="col table">
+              <thead>
+                  <tr>
+                      <th>No</th>
+                      <th>Pernyataan</th>
+                  </tr>
+              </thead>
+              <tbody>
+                  @foreach($hasilpernyataan as $data)
+                  <tr>
+                      <td> {{ $loop->iteration }} </td>
+                      <td> {{ $data->pernyataan->nama }} </td>
+                  </tr>
+                  @endforeach
+              </tbody>
+          </table>
+            <p class="mt-3"> Jurusan Yang Kamu Pilih </p>
+            <table class="col table">
+              <thead>
+                  <tr>
+                      <th>No</th>
+                      <th>Jurusan</th>
+                  </tr>
+              </thead>
+              <tbody>
+                  @foreach($hasiljurusan as $data1)
+                  <tr>
+                      <td> {{ $loop->iteration }} </td>
+                      <td> {{ $data1->jurusan->name }} </td>
+                  </tr>
+                  @endforeach
+              </tbody>
+          </table>
         </form>
     </div>
   </div>

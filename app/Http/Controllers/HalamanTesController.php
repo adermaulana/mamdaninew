@@ -84,6 +84,7 @@ class HalamanTesController extends Controller
         $request->session()->put('form_filled', true);
 
         $tesminat = TesMinat::create($validatedData);
+        $peserta = TesMinat::where('peserta_id', auth('peserta')->user()->id)->first();
 
         if ($request->has('jurusan_id')) {
             $jurusan = $request->input('jurusan_id');
@@ -91,7 +92,7 @@ class HalamanTesController extends Controller
             foreach ($jurusan as $data) {
                 JurusanItems::create([
                     'jurusan_id' => $data,
-                    'peserta_id' => 1,
+                    'peserta_id' => $peserta->peserta_id,
                     'minat_id' => $tesminat->id
                 ]);
             }
@@ -103,7 +104,7 @@ class HalamanTesController extends Controller
             foreach ($pernyataan as $datapernyataan) {
                 PernyataanItems::create([
                     'pernyataan_id' => $datapernyataan,
-                    'peserta_id' => 1,
+                    'peserta_id' => $peserta->peserta_id,
                     'minat_id' => $tesminat->id
                 ]);
             }
@@ -120,13 +121,15 @@ class HalamanTesController extends Controller
         } 
 
         $peserta = Peserta::where('id', auth('peserta')->user()->id)->first();
-        $hasil = TesMinat::where('peserta_id', auth('peserta')->user()->id)->latest()->first();
+        $hasiljurusan = JurusanItems::where('peserta_id', auth('peserta')->user()->id)->where('minat_id', 7)->latest()->get();
+        $hasilpernyataan = PernyataanItems::where('peserta_id', auth('peserta')->user()->id)->where('minat_id', 7)->latest()->get();
 
         return view('tes.hasil',[
             'title' => 'Halaman Hasil Tes Jurusan',
             'subtitle' => 'Hasil Tes Jurusan',
             'peserta' => $peserta,
-            'hasil' => $hasil,
+            'hasiljurusan' => $hasiljurusan,
+            'hasilpernyataan' => $hasilpernyataan,
             'active' => 'hasil'
         ]);
     }
