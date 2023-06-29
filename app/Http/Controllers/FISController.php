@@ -38,17 +38,18 @@ class FISController extends Controller
 		$phuzzy->addRule('IF minat.cukup_tertarik AND rapor.baik THEN penjurusan.cukup_sesuai');
 		$phuzzy->addRule('IF minat.sangat_tertarik AND rapor.sangat_baik THEN penjurusan.sangat_sesuai');
 		$phuzzy->addRule('IF minat.sangat_tertarik AND rapor.cukup THEN penjurusan.cukup_sesuai');
+		$phuzzy->addRule('IF minat.sangat_tertarik AND rapor.baik THEN penjurusan.sangat_sesuai');
 		$phuzzy->addRule('IF minat.cukup_tertarik AND rapor.sangat_baik THEN penjurusan.sangat_sesuai');
 		$phuzzy->addRule('IF minat.tidak_tertarik AND rapor.baik THEN penjurusan.kurang_sesuai');
 
 		$nilairapor = Rapor::where('peserta_id', 3)->first();
 		$rata_rata = ($nilairapor->semester_1 + $nilairapor->semester_2 + $nilairapor->semester_3 + $nilairapor->semester_4 + $nilairapor->semester_5) / 5;
 
-		$phuzzy->setRealInput('minat', $rata_rata);
-		$phuzzy->setRealInput('rapor', $rata_rata);
+		$phuzzy->setRealInput('minat', 20);
+		$phuzzy->setRealInput('rapor', 10);
 
 		$result = $phuzzy->Execute();
-
+		
         return view('tes',[
             'hasil' => $result
         ]);

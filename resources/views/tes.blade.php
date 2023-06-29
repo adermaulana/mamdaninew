@@ -8,10 +8,12 @@
 </head>
 <body>
     @foreach($hasil as $data)
-    @if($data >= 43)
-    <h1>Tuyul</h1>
-    @elseif($data < 43)
-    <h1>Drogba</h1>
+    @if($data <= 78)
+    <h1>Kurang Sesuai</h1>
+    @elseif($data >= 79 && $data <= 89)
+    <h1>Cukup Sesuai</h1>
+    @else
+    <h1>Sangat Sesuai</h1>
     @endif
     @endforeach
 </body>

@@ -56,7 +56,7 @@
           @enderror 
           @foreach($jurusan as $data)
           <div  class="form-check mt-3 mb-3">
-              <input class="form-check-input jurusan-checkbox" name="jurusan_id" type="checkbox" value="{{ $data->id }}" id="flexCheckChecked">
+              <input class="form-check-input jurusan-checkbox" name="jurusan_id[]" type="checkbox" value="{{ $data->id }}" id="flexCheckChecked">
               <h6 class="form-check-label" for="flexCheckChecked">
               {{ $data->name }}
               </h6>  
@@ -83,7 +83,7 @@
                       <tr>
                           <td> {{ $loop->iteration }} </td>
                           <td> {{ $data->nama }} </td>
-                          <td><input class="form-check-input pernyataan-checkbox" name="pernyataan_id" type="checkbox" value="{{ $data->id }}" id="flexCheckChecked"></td>
+                          <td><input class="form-check-input pernyataan-checkbox" name="pernyataan_id[]" type="checkbox" value="{{ $data->id }}" id="flexCheckChecked"></td>
                       </tr>
                       @endforeach
                   </tbody>

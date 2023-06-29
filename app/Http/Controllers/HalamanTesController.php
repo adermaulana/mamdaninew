@@ -9,6 +9,8 @@ use App\Models\Rapor;
 use App\Models\Peserta;
 use App\Models\Jurusan;
 use App\Models\TesMinat;
+use App\Models\PernyataanItems;
+use App\Models\JurusanItems;
 
 class HalamanTesController extends Controller
 {
@@ -75,16 +77,38 @@ class HalamanTesController extends Controller
     public function storepernyataan(Request $request){
 
         $validatedData = $request->validate([
-            'pernyataan_id' => 'required',
-            'jurusan_id' => 'required',
-        ]);
 
+        ]);
 
         $validatedData['peserta_id'] = auth('peserta')->user()->id;
         $request->session()->put('form_filled', true);
 
-        TesMinat::create($validatedData);
-        
+        $tesminat = TesMinat::create($validatedData);
+
+        if ($request->has('jurusan_id')) {
+            $jurusan = $request->input('jurusan_id');
+    
+            foreach ($jurusan as $data) {
+                JurusanItems::create([
+                    'jurusan_id' => $data,
+                    'peserta_id' => 1,
+                    'minat_id' => $tesminat->id
+                ]);
+            }
+        }
+
+        if ($request->has('pernyataan_id')) {
+            $pernyataan = $request->input('pernyataan_id');
+    
+            foreach ($pernyataan as $datapernyataan) {
+                PernyataanItems::create([
+                    'pernyataan_id' => $datapernyataan,
+                    'peserta_id' => 1,
+                    'minat_id' => $tesminat->id
+                ]);
+            }
+        }
+
         return redirect('halaman-tes/hasil');
     }
 
