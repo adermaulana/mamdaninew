@@ -70,14 +70,15 @@ class HalamanTesController extends Controller
             
         } else if(!$request->session()->has('form_filled')) {
             return redirect('halaman-tes/rapor')->with('error', 'Silakan isi Nilai Rapor terlebih dahulu.');
-        }
+        } 
 
     }
 
     public function storepernyataan(Request $request){
 
         $validatedData = $request->validate([
-
+            'jurusan_id' => 'required',
+            'pernyataan_id' => 'required'
         ]);
 
         $validatedData['peserta_id'] = auth('peserta')->user()->id;
@@ -118,11 +119,12 @@ class HalamanTesController extends Controller
 
         if (!$request->session()->has('form_filled')) {
             return redirect('halaman-tes')->with('error', 'Silakan isi Pernyataan terlebih dahulu.');
-        } 
-
+        }
+        $tes = auth('peserta')->user()->id;
+        $lastInputData = TesMinat::latest('id')->first();
         $peserta = Peserta::where('id', auth('peserta')->user()->id)->first();
-        $hasiljurusan = JurusanItems::where('peserta_id', auth('peserta')->user()->id)->where('minat_id', 7)->latest()->get();
-        $hasilpernyataan = PernyataanItems::where('peserta_id', auth('peserta')->user()->id)->where('minat_id', 7)->latest()->get();
+        $hasiljurusan = JurusanItems::where('minat_id', $lastInputData->id )->where('peserta_id',$tes)->latest()->get();
+        $hasilpernyataan = PernyataanItems::where('minat_id', $lastInputData->id)->where('peserta_id',$tes)->latest()->get();
 
         return view('tes.hasil',[
             'title' => 'Halaman Hasil Tes Jurusan',
@@ -132,5 +134,7 @@ class HalamanTesController extends Controller
             'hasilpernyataan' => $hasilpernyataan,
             'active' => 'hasil'
         ]);
+
     }
+
 }
