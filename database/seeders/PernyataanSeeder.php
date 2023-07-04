@@ -23,7 +23,7 @@ class PernyataanSeeder extends Seeder
         Pernyataan::create([
             'nama' => 'Saya senang berwirausaha tentang produk yang berhubungan 
             dengan pengelasan',
-            'jurusan_id' => 2
+            'jurusan_id' => 4
         ]);
         
         Pernyataan::create([
@@ -45,7 +45,7 @@ class PernyataanSeeder extends Seeder
 
         Pernyataan::create([
             'nama' => 'Saya ingin mempelajari dasar-dasar konstruksi bangunan dan teknik pengukuran tanah',
-            'jurusan_id' => 6
+            'jurusan_id' => 3
         ]);
 
         Pernyataan::create([

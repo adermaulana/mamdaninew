@@ -7,7 +7,7 @@
       <!-- Grid row -->
       <div style="background-color:#0652dd; color:#e9edc9;" class="row mt-5">
         <!-- Grid column -->
-        <div class="col-md-5 col-lg-5 col-xl-5 mx-auto mb-2 mt-4">
+        <div class="col-md-3 col-lg-3 col-xl-3 mx-auto mb-2 mt-4">
           <!-- Content -->
           <h1 class="text-uppercase fw-bold mb-4 ">
             {{ $subtitle }} 
@@ -41,8 +41,6 @@
 
 
     <div class="col">
-        <form action="/halaman-tes/rapor" method="post">
-            @csrf
             <h1 class="mt-3">Hasil Tes Jurusan</h1>
             <h6 class="mt-3">Setelah Mengisi Pernyataan Yang Ada, berikut Hasil Tes Jurusan Anda :</h6>
             <hr>
@@ -69,6 +67,7 @@
                   <tr>
                       <th>No</th>
                       <th>Jurusan</th>
+                      <th>Hasil Kecocokan</th>
                   </tr>
               </thead>
               <tbody>
@@ -76,14 +75,37 @@
                   <tr>
                       <td> {{ $loop->iteration }} </td>
                       <td> {{ $data1->jurusan->name }} </td>
+                      @foreach($hasil as $tes)
+                      @if($tes <= 78)
+                      <td><b class="text-danger">Kurang Sesuai</b></td>
+                      @elseif($tes >= 79 && $tes <= 89)
+                      <td><b class="text-success">Cukup Sesuai</b></td>
+                      @else
+                      <td><b class="text-primary">Sangat Sesuai</b></td>
+                      @endif
+                      @endforeach
                   </tr>
                   @endforeach
               </tbody>
           </table>
-        </form>
+          <table class="col table">
+            <thead>
+                <tr>
+                    <th>No</th>
+                    <th>Jurusan</th>
+                    <th>Kecocokan</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach($hasilpernyataan as $data2)
+                <tr>
+                  <td> {{ $loop->iteration }} </td>
+                  <td>{{ $data2->pernyataan->jurusan->name }}</td>
+                  <td>{{ $data2->pernyataan->nama }}</td>
+                </tr>
+                @endforeach
+            </tbody>
+        </table>
     </div>
   </div>
-
-
-
 @endsection

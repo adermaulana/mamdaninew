@@ -49,7 +49,6 @@
       <form action="/halaman-tes" method="post">
         @csrf
           <h1 class="mt-3">Tertarik Dengan Jurusan Apa?</h1>
-          <h6 class="mt-3">Maksimal memilih 3 jurusan!</h6>
           <hr>
           @error('jurusan_id')
           <div class="alert alert-danger mt-1 mb-1">{{ $message }}</div>
