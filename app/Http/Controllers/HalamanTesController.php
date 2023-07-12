@@ -128,7 +128,6 @@ class HalamanTesController extends Controller
         $hasiljurusan = JurusanItems::where('minat_id', $lastInputData->id )->where('peserta_id',$tes)->latest()->get();
         $hasilpernyataan = PernyataanItems::where('minat_id', $lastInputData->id)->where('peserta_id',$tes)->latest()->get();
 
-
         $phuzzy = new Fuzzy;
 
 		$phuzzy->clearMembers();

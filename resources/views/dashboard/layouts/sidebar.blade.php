@@ -130,7 +130,7 @@
         @else
         <ul id="tables-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
         @endif
-        <li>
+        {{-- <li>
             <a href="/dashboard/rapor/create">
             @if(Request::is('dashboard/rapor/create'))
               <i class="bi bi-circle"></i><span class="text-primary">Tambah Nilai Rapor</span>
@@ -138,7 +138,7 @@
               <i class="bi bi-circle"></i><span>Tambah Nilai Rapor</span>
             @endif
             </a>
-          </li>
+          </li> --}}
           <li>
             <a href="/dashboard/rapor">
             @if(Request::is('dashboard/rapor'))

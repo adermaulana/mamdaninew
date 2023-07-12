@@ -31,7 +31,7 @@
   <div class="row">
   <div class="col-5">
         <div  class="form-check mt-4 mb-4">
-            <h6>Masukkan Nilai Rapor Sebelum Mengisi Form<a class="text-decoration-none" href="/halaman-tes"> Tes Jurusan</a></h6>
+            <h6>Masukkan Nilai Rapor Sebelum Mengisi Form<a class="text-decoration-none" href="/halaman-tes/"> Tes Jurusan</a></h6>
             <h2>Punya Pertanyaan?</h2>
             <h3>Hubungi : 0853xxxx</h3>
         </div>
