@@ -46,7 +46,7 @@
 
 
     <div class="col">
-      <form action="/halaman-tes" method="post">
+      <form action="/halaman-tes" method="post" onsubmit="return updateCheckboxes()">
         @csrf
         <h1 class="mt-3">Tertarik Dengan Jurusan Apa?</h1>
         <h6 class="mt-3"><b>Maksimal memilih 3 jurusan!</b></h6>
@@ -136,6 +136,12 @@
       } else if ( checkedCount < maxAllowed && !$(this).is(':checked')){
         submitButton.prop('disabled', true);
       }
+      
+      if (checkedCount > 15 && !$(this).is(':checked')) {
+                alert("Jumlah pernyataan yang dicentang tidak boleh melebihi 15.");
+                submitButton.prop('disabled', true);
+                return false;
+            }
     });
   }
 
