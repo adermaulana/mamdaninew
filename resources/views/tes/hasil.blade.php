@@ -88,24 +88,6 @@
                   @endforeach
               </tbody>
           </table>
-          <table class="col table">
-            <thead>
-                <tr>
-                    <th>No</th>
-                    <th>Jurusan</th>
-                    <th>Kecocokan</th>
-                </tr>
-            </thead>
-            <tbody>
-                @foreach($hasilpernyataan as $data2)
-                <tr>
-                  <td> {{ $loop->iteration }} </td>
-                  <td>{{ $data2->pernyataan->jurusan->name }}</td>
-                  <td>{{ $data2->pernyataan->nama }}</td>
-                </tr>
-                @endforeach
-            </tbody>
-        </table>
     </div>
   </div>
 @endsection
