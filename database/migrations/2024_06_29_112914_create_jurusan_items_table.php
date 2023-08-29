@@ -18,6 +18,7 @@ class CreateJurusanItemsTable extends Migration
             $table->foreignId('peserta_id');
             $table->foreignId('jurusan_id');
             $table->foreignId('minat_id');
+            $table->double('hasil');
             $table->timestamps();
 
             

@@ -65,16 +65,13 @@
             <table class="col table">
               <thead>
                   <tr>
-                      <th>No</th>
                       <th>Jurusan</th>
                       <th>Hasil Kecocokan</th>
                   </tr>
               </thead>
               <tbody>
-                  @foreach($hasiljurusan as $data1)
                   <tr>
-                      <td> {{ $loop->iteration }} </td>
-                      <td> {{ $data1->jurusan->name }} </td>
+                    <td> {{ $hasiljurusan }} </td>
                       @foreach($hasil as $tes)
                       @if($tes <= 78)
                       <td><b class="text-danger">Kurang Sesuai</b></td>
@@ -85,7 +82,6 @@
                       @endif
                       @endforeach
                   </tr>
-                  @endforeach
               </tbody>
           </table>
     </div>

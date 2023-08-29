@@ -12,6 +12,7 @@ use App\Models\TesMinat;
 use App\Models\PernyataanItems;
 use App\Models\JurusanItems;
 use App\FIS\Fuzzy;
+use Illuminate\Support\Facades\DB;
 
 class HalamanTesController extends Controller
 {
@@ -78,7 +79,6 @@ class HalamanTesController extends Controller
     public function storepernyataan(Request $request){
 
         $validatedData = $request->validate([
-            'jurusan_id' => 'required',
             'pernyataan_id' => 'required'
         ]);
 
@@ -88,17 +88,6 @@ class HalamanTesController extends Controller
         $tesminat = TesMinat::create($validatedData);
         $peserta = TesMinat::where('peserta_id', auth('peserta')->user()->id)->first();
 
-        if ($request->has('jurusan_id')) {
-            $jurusan = $request->input('jurusan_id');
-    
-            foreach ($jurusan as $data) {
-                JurusanItems::create([
-                    'jurusan_id' => $data,
-                    'peserta_id' => $peserta->peserta_id,
-                    'minat_id' => $tesminat->id
-                ]);
-            }
-        }
 
         if ($request->has('pernyataan_id')) {
             $pernyataan = $request->input('pernyataan_id');
@@ -163,25 +152,30 @@ class HalamanTesController extends Controller
 
         $jurusan_id = JurusanItems::where('minat_id',$lastInputData->id)->latest()->first();
 
-        $hasilpernyataan2 = PernyataanItems::where('minat_id', $lastInputData->id)->where('peserta_id',$tes)->whereHas('pernyataan', function ($query) use ($jurusan_id) {
-                $query->where('jurusan_id', $jurusan_id->jurusan_id);
-        })->latest()->get();
+        //Terbaru query mengambil jurusan
 
-        $count = $hasilpernyataan2->count();
+        $jurusanTerbanyak = DB::table('pernyataan_items')
+        ->join('pernyataans', 'pernyataan_items.pernyataan_id', '=', 'pernyataans.id')
+        ->join('jurusans', 'pernyataans.jurusan_id', '=', 'jurusans.id')
+        ->select('jurusans.id', 'jurusans.name', DB::raw('COUNT(pernyataan_items.id) as total_pernyataan'))
+        ->groupBy('jurusans.id', 'jurusans.name')
+        ->orderByDesc('total_pernyataan')
+        ->where('peserta_id',$tes)
+        ->where('minat_id',$lastInputData->id)
+        ->first();
 
         $rata_rata = ($nilairapor->semester_1 + $nilairapor->semester_2 + $nilairapor->semester_3 + $nilairapor->semester_4 + $nilairapor->semester_5) / 5;
 
-		$phuzzy->setRealInput('minat',$count);
+		$phuzzy->setRealInput('minat',$jurusanTerbanyak->total_pernyataan);
 		$phuzzy->setRealInput('rapor', $rata_rata);
 
 		$result = $phuzzy->Execute();
- 
 
         return view('tes.hasil',[
             'title' => 'Halaman Hasil Tes Jurusan',
             'subtitle' => 'Tes Jurusan',
             'peserta' => $peserta,
-            'hasiljurusan' => $hasiljurusan,
+            'hasiljurusan' => $jurusanTerbanyak->name,
             'hasilpernyataan' => $hasilpernyataan,
             'active' => 'hasil',
             'hasil' => $result
