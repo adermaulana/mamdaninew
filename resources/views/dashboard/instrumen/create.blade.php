@@ -48,6 +48,20 @@
 @enderror
 </div>
 </div>
+<div class="col-xs-6 col-sm-6 col-md-6">
+<div class="form-group">
+<h6>Jurusan Terhubung</h6>
+<select class="form-select" name="jurusan_id">
+  @foreach ($jurusan as $data)
+  @if(old('jurusan_id') == $data->id)
+    <option value="{{ $data->id }} " selected> {{ $data->name }} </option>
+  @else
+    <option value="{{ $data->id }}"> {{ $data->name }} </option>
+  @endif
+  @endforeach
+</select>
+</div>
+</div>
 <div>
 <div class="col-xs-6 col-sm-6 col-md-6">
 <div class="form-group">

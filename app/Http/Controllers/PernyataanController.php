@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Pernyataan;
+use App\Models\Jurusan;
 use Illuminate\Http\Request;
 
 class PernyataanController extends Controller
@@ -24,7 +25,8 @@ class PernyataanController extends Controller
     public function create()
     {
         return view('dashboard.instrumen.create',[
-            'title' => 'Tambah Data'
+            'title' => 'Tambah Data',
+            'jurusan' => Jurusan::all()
         ]);
     }
 
@@ -34,7 +36,8 @@ class PernyataanController extends Controller
     public function store(Request $request)
     {
         $validatedData = $request->validate([
-            'nama' => 'required'
+            'nama' => 'required',
+            'jurusan_id' => 'required'
             ]);
 
             Pernyataan::create($validatedData);
@@ -58,7 +61,8 @@ class PernyataanController extends Controller
         $pernyataan = Pernyataan::FindOrFail($id);
         return view('dashboard.instrumen.edit',[
             'title' => "Ubah Instrumen Pernyataan",
-            'pernyataan' => $pernyataan
+            'pernyataan' => $pernyataan,
+            'jurusan' => Jurusan::all()
         ]);
     }
 
