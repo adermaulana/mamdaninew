@@ -15,156 +15,153 @@ class PernyataanSeeder extends Seeder
     public function run()
     {
         Pernyataan::create([
-            'nama' => 'Saya ingin mempelajari mengenai aplikasi perangkat lunak dan 
-            perancangan interior gedung',
+            'nama' => 'Tertarik membuat gambar konstruksi bangunan',
             'jurusan_id' => 3
         ]);
 
         Pernyataan::create([
-            'nama' => 'Saya senang berwirausaha tentang produk yang berhubungan 
-            dengan pengelasan',
+            'nama' => 'Tertarik mempelajari Teknik dasar pengelasan',
             'jurusan_id' => 4
         ]);
         
         Pernyataan::create([
-            'nama' => 'Saya ingin mempunyai kemampuan untuk melakukan perbaikan 
-            pada berbagai instrumen elektronika',
+            'nama' => 'Tertarik mengoperasikan software aplikasi program dan gambar',
             'jurusan_id' => 6
         ]);
 
 
         Pernyataan::create([
-            'nama' => 'Saya senang melakukan perbaikan sistem bahan bakar sepeda motor',
+            'nama' => 'Tertarik mempelajari dasar - dasar mesin',
             'jurusan_id' => 5
         ]);
 
         Pernyataan::create([
-            'nama' => 'Saya ingin mengetahui estimasi biaya kontruksi',
+            'nama' => 'Senang menggunakan software 2D maupun 3D',
             'jurusan_id' => 3
         ]);
 
         Pernyataan::create([
-            'nama' => 'Saya ingin mempelajari dasar-dasar konstruksi bangunan dan teknik pengukuran tanah',
+            'nama' => 'Tertarik dalam menghitung volume dari sebuah bangunan',
             'jurusan_id' => 3
         ]);
 
         Pernyataan::create([
-            'nama' => 'Saya tertarik dan suka sesuatu yang berhubungan dengan otomotif',
+            'nama' => 'Ingin menjadi Teknisi atau Mekanik pada bengkel sepeda motor',
             'jurusan_id' => 5
         ]);
 
         Pernyataan::create([
-            'nama' => 'Saya ingin mempelajari bagaimana coding untuk sebuah operasi komputer',
+            'nama' => 'Tertarik membaca buku/artikel komputer',
             'jurusan_id' => 1
         ]);
 
         Pernyataan::create([
-            'nama' => 'Saya senang melakukan riset, analisis dan berhitung',
+            'nama' => 'Senang mempelajari simbol - simbol termasuk dalam pengelasan',
             'jurusan_id' => 4
         ]);
 
         Pernyataan::create([
-            'nama' => 'Saya ingin bekerja sebagai seorang operator pada perusahaan bidang elektronika',
+            'nama' => 'Tertarik dengan sistem mikrokontroller dan mikroprosessor',
             'jurusan_id' => 6
         ]);
 
         Pernyataan::create([
-            'nama' => 'Saya tertarik mengetahui tentang Kontruksi jalan dan jembatan',
+            'nama' => 'Tertarik menjadi wirausahawan alat dan bahan bangunan',
             'jurusan_id' => 3
         ]);
 
         Pernyataan::create([
-            'nama' => 'Saya senang tentang semua yang berhubungan dengan Internet',
+            'nama' => 'Senang bekerja dengan perangkat jaringan',
             'jurusan_id' => 1
         ]);
 
         Pernyataan::create([
-            'nama' => 'Saya ingin mempelajari bagaimana merakit komputer',
+            'nama' => 'Senang menginstall software sistem operasi dan aplikasi',
             'jurusan_id' => 1
         ]);
 
         Pernyataan::create([
-            'nama' => 'Saya ingin bisa bekerja di perusahaan otomotif untuk bidang pekerjaan las dan bubut',
+            'nama' => 'Senang dalam membaca atau memahami gambar/skema',
             'jurusan_id' => 4
         ]);
 
         Pernyataan::create([
-            'nama' => 'Saya ingin mempelajari lebih dalam yang berhubungan dengan elektronika industri',
+            'nama' => 'Tertarik mempelajari komponen - komponen elektronika',
             'jurusan_id' => 6
         ]);
 
         Pernyataan::create([
-            'nama' => 'Saya senang melakukan pekerjaan servis pada roda, ban, dan rantai',
+            'nama' => 'Tertarik menjadi Modifikator dalam bidang Sepeda Motor',
             'jurusan_id' => 5
         ]);
 
         Pernyataan::create([
-            'nama' => 'Saya tertarik mengenal Operating System (OS)',
+            'nama' => 'Senang dengan matematika',
             'jurusan_id' => 1
         ]);
 
         Pernyataan::create([
-            'nama' => 'Saya ingin mempelajari bagaimana teknik-teknik pengelasan',
+            'nama' => 'Tertarik bekerja pada perusahaan pengelasan/welding',
             'jurusan_id' => 4
         ]);
 
         Pernyataan::create([
-            'nama' => 'Saya tertarik dengan pekerjaan yang berhubungan dengan listrik',
+            'nama' => 'Tertarik dalam membuat skema/rangkaian listrik',
             'jurusan_id' => 2
         ]);
 
         Pernyataan::create([
-            'nama' => 'Saya tertarik mempelajari tentang kontruksi dan utilitas gedung',
+            'nama' => 'Senang dalam mengukur bangunan',
             'jurusan_id' => 3
         ]);
 
         Pernyataan::create([
-            'nama' => 'Saya ingin mempelajari bagaimana pemasangan dan pengoperasian motor listrik dengan kendali elektrimekanik',
+            'nama' => 'Tertarik dalam membuat skema/rangkaian elektronika',
             'jurusan_id' => 6
         ]);
 
         Pernyataan::create([
-            'nama' => 'Saya tertarik untuk membuat motor/mobil listrik',
+            'nama' => 'Tertarik menjadi wirausahawan dalam bidang Listrik',
             'jurusan_id' => 2
         ]);
 
         Pernyataan::create([
-            'nama' => 'Saya tertarik mempelajari mengenai robotik',
+            'nama' => 'Memiliki rasa ingin tahu tentang bagaimana perangkat elektronik bekerja',
             'jurusan_id' => 6
         ]);
 
         Pernyataan::create([
-            'nama' => 'Saya ingin lebih mengenal Komponen-Komponen Komputer',
+            'nama' => 'Senang mempelajari bagaimana cara kerja internet',
             'jurusan_id' => 1
         ]);
 
         Pernyataan::create([
-            'nama' => 'Saya senang melihat orang-orang yang bekerja dibidang listrik',
+            'nama' => 'Tertarik menggunakan alat – alat kelistrikan',
             'jurusan_id' => 2
         ]);
 
         Pernyataan::create([
-            'nama' => 'Saya bercita-cita ingin membuat bengkel las sendiri',
+            'nama' => 'Tertarik dalam membuat skema/gambar pengelasan',
             'jurusan_id' => 4
         ]);
 
         Pernyataan::create([
-            'nama' => 'Saya ingin mempelajari tentang cara merancang dan menggunakan alat-alat mesin pada sepeda motor',
+            'nama' => 'Ingin menjadi wirausahawan dalam bidang Sepeda Motor',
             'jurusan_id' => 5
         ]);
 
         Pernyataan::create([
-            'nama' => 'Saya ingin menjadi teknisi atau mekanik handal',
+            'nama' => 'Senang bekerja dengan alat-alat otomotif',
             'jurusan_id' => 5
         ]);
 
         Pernyataan::create([
-            'nama' => 'Saya ingin bisa bekerja di PLN',
+            'nama' => 'Tertarik bekerja pada perusahaan pembangkit listrik',
             'jurusan_id' => 2
         ]);
 
         Pernyataan::create([
-            'nama' => 'Saya ingin bisa merawat dan memperbaiki peralatan rumah tangga listrik',
+            'nama' => 'Senang memperbaiki sistem listrik',
             'jurusan_id' => 2
         ]);
     }

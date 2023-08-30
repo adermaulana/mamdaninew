@@ -73,7 +73,8 @@ class PernyataanController extends Controller
     {
         $pernyataan = Pernyataan::FindOrFail($id);
         $validatedData = $request->validate([
-            'nama' => 'required'
+            'nama' => 'required',
+            'jurusan_id' => 'required'
             ]);
 
             Pernyataan::where('id',$pernyataan->id)
