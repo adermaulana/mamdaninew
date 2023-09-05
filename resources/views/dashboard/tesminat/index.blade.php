@@ -33,15 +33,13 @@
             <tr>
                 <th>No</th>
                 <th>Nama</th>
-                <th>Jurusan Yang Dipilih</th>
             </tr>
         </thead>
         <tbody>
         @foreach ($hasiljurusan as $data)
           <tr>
             <td>{{ $loop->iteration }}</td>
-            <td>{{ $data->peserta->name }} </td>
-            <td>{{ $data->jurusan->name }} </td>
+            <td>{{ $data->name }} </td>
           </tr>
           @endforeach 
         </tbody>

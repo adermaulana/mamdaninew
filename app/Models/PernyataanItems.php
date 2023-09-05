@@ -5,6 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use App\Models\Pernyataan;
+use App\Models\Peserta;
 use App\Models\JurusanItems;
 
 class PernyataanItems extends Model
@@ -16,6 +17,11 @@ class PernyataanItems extends Model
     public function pernyataan()
     {
         return $this->belongsTo(Pernyataan::class, 'pernyataan_id','id');
+    }
+
+    public function peserta()
+    {
+        return $this->belongsTo(Peserta::class, 'peserta_id','id');
     }
 
 }

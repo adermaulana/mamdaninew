@@ -51,7 +51,7 @@
         <hr>
           <div class="row">
             <div class="col">
-              <h6 class="mt-3">Centang Pernyataan yang Menurut Anda Sesuai dengan yang diinginkan <b>( Minimal 5 )</b> ! Jika tidak cukup abaikan!</h6>
+              <h6 class="mt-3">Centang Pernyataan yang Menurut Anda Sesuai dengan yang diinginkan <b>( Minimal 7 )</b> ! Jika tidak cukup abaikan!</h6>
               @error('pernyataan_id')
               <div class="alert alert-danger mt-1 mb-1">{{ $message }}</div>
               @enderror
@@ -111,7 +111,7 @@
 <script>
   $(document).ready(function() {
   var checkboxes = $('.pernyataan-checkbox');
-  var maxAllowed = 5;
+  var maxAllowed = 7;
 
   function updateCheckboxes() {
     var checkedCount = $('.pernyataan-checkbox:checked').length;
