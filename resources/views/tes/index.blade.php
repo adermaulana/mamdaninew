@@ -51,7 +51,7 @@
         <hr>
           <div class="row">
             <div class="col">
-              <h6 class="mt-3">Centang Pernyataan yang Menurut Anda Sesuai dengan yang diinginkan <b>( Minimal 7 )</b> ! Jika tidak cukup abaikan!</h6>
+              <h6 class="mt-3">Centang Pernyataan yang Menurut Anda Sesuai dengan yang diinginkan <b>( 7 )</b> ! Jika tidak, cukup abaikan!</h6>
               @error('pernyataan_id')
               <div class="alert alert-danger mt-1 mb-1">{{ $message }}</div>
               @enderror
@@ -123,8 +123,8 @@
         submitButton.prop('disabled', true);
       }
       
-      if (checkedCount > 15 && !$(this).is(':checked')) {
-                alert("Jumlah pernyataan yang dicentang tidak boleh melebihi 15.");
+      if (checkedCount > 7 && !$(this).is(':checked')) {
+                alert("Jumlah pernyataan yang dicentang tidak boleh melebihi 7.");
                 submitButton.prop('disabled', true);
                 return false;
             } 
