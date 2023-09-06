@@ -61,29 +61,8 @@
                   @endforeach
               </tbody>
           </table>
-            <p class="mt-3"> Jurusan Yang Kamu Pilih </p>
-            <table class="col table">
-              <thead>
-                  <tr>
-                      <th>Jurusan</th>
-                      <th>Hasil Kecocokan</th>
-                  </tr>
-              </thead>
-              <tbody>
-                  <tr>
-                    <td> {{ $hasiljurusan }} </td>
-                      @foreach($hasil as $tes)
-                      @if($tes <= 78)
-                      <td><b class="text-danger">Kurang Sesuai</b></td>
-                      @elseif($tes >= 79 && $tes <= 89)
-                      <td><b class="text-success">Cukup Sesuai</b></td>
-                      @else
-                      <td><b class="text-primary">Sangat Sesuai</b></td>
-                      @endif
-                      @endforeach
-                  </tr>
-              </tbody>
-          </table>
+            <p class="mt-3"><b>Dari pilihan yang telah dipilih, Anda cocok di Jurusan</b></p> 
+            <h2 class="text-success"> {{ $hasiljurusan }} </h2> 
     </div>
   </div>
 @endsection
