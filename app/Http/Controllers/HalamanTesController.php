@@ -170,7 +170,7 @@ class HalamanTesController extends Controller
 		$phuzzy->setRealInput('rapor', $rata_rata);
 
 		$result = $phuzzy->Execute();
-
+        
         return view('tes.hasil',[
             'title' => 'Halaman Hasil Tes Jurusan',
             'subtitle' => 'Tes Jurusan',
@@ -178,7 +178,7 @@ class HalamanTesController extends Controller
             'hasiljurusan' => $jurusanTerbanyak->name,
             'hasilpernyataan' => $hasilpernyataan,
             'active' => 'hasil',
-            'hasil' => $result
+            'hasil' => $result  
         ]);
 
     }

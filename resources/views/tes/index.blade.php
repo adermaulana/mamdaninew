@@ -75,7 +75,7 @@
                   </tbody>
               </table>
               
-              <input class="btn btn-primary" onclick="validateForm()" type="submit" id="submitButton" value="Kirim" disabled>
+              <input class="btn btn-primary" onclick="validateForm()" type="submit" id="submitButton" value="Kirim">
             </div>
           </div>
       </form>
@@ -112,6 +112,7 @@
   $(document).ready(function() {
   var checkboxes = $('.pernyataan-checkbox');
   var maxAllowed = 7;
+  var submitButton = $('#submitButton');
 
   function updateCheckboxes() {
     var checkedCount = $('.pernyataan-checkbox:checked').length;
@@ -120,7 +121,7 @@
       if (checkedCount >= maxAllowed && !$(this).is(':checked')) {
         submitButton.prop('disabled', false);
       } else if ( checkedCount < maxAllowed && !$(this).is(':checked')){
-        submitButton.prop('disabled', true);
+        submitButton.prop('disabled', false);
       }
       
       if (checkedCount > 7 && !$(this).is(':checked')) {
@@ -131,6 +132,15 @@
     });
   }
 
+  function handleSubmit(event) {
+        var checkedCount = $('.pernyataan-checkbox:checked').length;
+        if (checkedCount < maxAllowed) {
+            event.preventDefault(); // Prevent form submission
+            alert("Anda harus memilih  7 pernyataan sebelum mengirimkan hasil tes.");
+        }
+    }
+
   checkboxes.on('change', updateCheckboxes);
+  submitButton.on('click', handleSubmit);
 });
 </script>
