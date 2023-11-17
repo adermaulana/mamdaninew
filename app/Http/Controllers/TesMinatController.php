@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\TesMinat;
 use App\Models\Rapor;
 use App\Models\Peserta;
+use App\Models\HasilTes;
 use App\Models\JurusanItems;
 use App\Models\PernyataanItems;
 use Illuminate\Http\Request;
@@ -22,20 +23,11 @@ class TesMinatController extends Controller
     public function index()
     {
         
-        $peserta = Peserta::all();
-
-        $jurusanTerbanyak = DB::table('pernyataan_items')
-        ->join('pernyataans', 'pernyataan_items.pernyataan_id', '=', 'pernyataans.id')
-        ->join('pesertas', 'pernyataan_items.peserta_id', '=', 'pesertas.id')
-        ->join('jurusans', 'pernyataans.jurusan_id', '=', 'jurusans.id')
-        ->select('jurusans.id', 'jurusans.name', DB::raw('COUNT(pernyataan_items.id) as total_pernyataan'))
-        ->groupBy('jurusans.id', 'jurusans.name')
-        ->orderByDesc('total_pernyataan')
-        ->get();
+        $peserta = HasilTes::all();
 
         return view('dashboard.tesminat.index',[
             'title' => 'Halaman Hasil Tes Jurusan',
-            'hasiljurusan' => $jurusanTerbanyak
+            'hasiljurusan' => $peserta
         ]);
     }
 
