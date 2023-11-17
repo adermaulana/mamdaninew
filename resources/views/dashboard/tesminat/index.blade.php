@@ -33,13 +33,23 @@
             <tr>
                 <th>No</th>
                 <th>Nama</th>
+                <th>Jurusan Diminati</th>
+                <th>Nilai Penjurusan</th>
             </tr>
         </thead>
         <tbody>
         @foreach ($hasiljurusan as $data)
           <tr>
             <td>{{ $loop->iteration }}</td>
-            <td>{{ $data->name }} </td>
+            <td>{{ $data->peserta->name }} </td>
+            <td>{{ $data->hasil_jurusan }} </td>
+            @if($data->nilai >= 90)
+            <td class="text-success">{{ $data->nilai }} </td>
+            @elseif($data->nilai <= 89 && $data->nilai >= 60)
+            <td class="text-warning">{{ $data->nilai }} </td>
+            @else
+            <td class="text-danger">{{ $data->nilai }} </td>
+            @endif
           </tr>
           @endforeach 
         </tbody>

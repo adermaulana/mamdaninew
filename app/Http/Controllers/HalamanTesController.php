@@ -8,6 +8,7 @@ use App\Models\Pernyataan;
 use App\Models\Rapor;
 use App\Models\Peserta;
 use App\Models\Jurusan;
+use App\Models\HasilTes;
 use App\Models\TesMinat;
 use App\Models\PernyataanItems;
 use App\Models\JurusanItems;
@@ -170,6 +171,15 @@ class HalamanTesController extends Controller
 		$phuzzy->setRealInput('rapor', $rata_rata);
 
 		$result = $phuzzy->Execute();
+
+        $nilai = $result['penjurusan'];
+
+        HasilTes::create([
+            'peserta_id' => $tes,
+            'hasil_jurusan' => $jurusanTerbanyak->name,
+            'nilai' => $nilai
+        ]);
+        
 
         return view('tes.hasil',[
             'title' => 'Halaman Hasil Tes Jurusan',
