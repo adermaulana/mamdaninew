@@ -84,7 +84,7 @@ class Fuzzify extends Member
 	}
 
 	/**
-	 * Untuk mendapatkan data derjat keanggotaan
+	 * Untuk mendapatkan data derajat keanggotaan
 	 * 
 	 * @param  String 	$variabel 	Nama variabel
 	 * @param  String 	$himpunan   Nama himpunan

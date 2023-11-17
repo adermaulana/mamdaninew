@@ -61,7 +61,8 @@
                   @endforeach
               </tbody>
           </table>
-            <p class="mt-3"><b>Dari pilihan yang telah dipilih, Anda cocok di Jurusan</b></p> 
+            <p class="mt-3"><b>Dari pilihan yang telah dipilih, Anda cocok di Jurusan</b></p>
+
             <h2 class="text-success"> {{ $hasiljurusan }} </h2> 
     </div>
   </div>
