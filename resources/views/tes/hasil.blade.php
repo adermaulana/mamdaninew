@@ -61,9 +61,14 @@
                   @endforeach
               </tbody>
           </table>
+          @if($jumlah_jurusan < 3)
             <p class="mt-3"><b>Dari pilihan yang telah dipilih, Anda cocok di Jurusan</b></p>
-
             <h2 class="text-success"> {{ $hasiljurusan }} </h2> 
+            <p class="text-danger">Tapi Belum Memenuhi Syarat Kelulusan</p>
+            @else
+            <p class="mt-3"><b>Dari pilihan yang telah dipilih, Anda cocok di Jurusan</b></p>
+            <h2 class="text-success"> {{ $hasiljurusan }} </h2> 
+          @endif
     </div>
   </div>
 @endsection

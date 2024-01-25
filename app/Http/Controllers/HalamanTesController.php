@@ -173,6 +173,7 @@ class HalamanTesController extends Controller
 		$result = $phuzzy->Execute();
 
         $nilai = $result['penjurusan'];
+        
 
         HasilTes::create([
             'peserta_id' => $tes,
@@ -187,6 +188,7 @@ class HalamanTesController extends Controller
             'peserta' => $peserta,
             'hasiljurusan' => $jurusanTerbanyak->name,
             'hasilpernyataan' => $hasilpernyataan,
+            'jumlah_jurusan' => $jurusanTerbanyak->total_pernyataan,
             'active' => 'hasil',
             'hasil' => $result  
         ]);
