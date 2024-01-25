@@ -21,8 +21,8 @@ class DatabaseSeeder extends Seeder
         $this->call(PernyataanSeeder::class);
 
         User::create([
-            'name' => 'Lisa Efrianti',
-            'email' => 'lisaefrianti@gmail.com',
+            'name' => 'Admin',
+            'email' => 'admin@gmail.com',
             'password' => bcrypt('12345'),
         ]);
     }
