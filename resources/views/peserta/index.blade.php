@@ -33,6 +33,13 @@
 <div id="content-wrapper">
   <div class="container mt-3">
 
+  @if ($message = Session::get('success'))
+        <div class="alert alert-success alert-dismissible fade show col-lg-12" role="alert">
+                {{ session('success') }}
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+              </div>
+        @endif
+
     <div class="row justify-content-center">
     <div class="col-md-4 pb-3">
       <div class="card">
@@ -41,14 +48,12 @@
             <span> Nama : <strong>{{ $peserta->name }}</strong></span><br>
             <span> Email : <strong>{{ $peserta->email }}</strong></span><br>
             <span> Alamat : <strong>{{ $peserta->address }}</strong></span><br>
-            <span> No Telepon : <strong>{{ $peserta->number }}</strong></span>
+            <span> No Telepon : <strong>{{ $peserta->number }}</strong></span><br>
+            <a href="/profil/edit" class="btn btn-success mt-3">Ubah Data</a>
+            <a href="/profil/edit-password" class="btn btn-primary mt-3">Ubah Password</a>
           </div>
-            <div class="embed-responsive embed-responsive-16by9">
-
-            </div>
             <hr>
             <div class="card-title">Terima Kasih Sudah Menggunakan Aplikasi Ini</div>
-
             </div>
       </div>
     </div>

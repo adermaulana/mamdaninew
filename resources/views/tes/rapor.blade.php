@@ -39,7 +39,7 @@
 
 
     <div class="col">
-        <form action="/halaman-tes/rapor" method="post">
+        <form action="/halaman-tes/rapor" method="post" enctype="multipart/form-data">
             @csrf
             <h1 class="mt-3">Masukkan Nilai Rapor</h1>
             <h6 class="mt-3">Masukkan Nilai Rata-Rata Rapor Semester Kalian!</h6>
@@ -89,6 +89,15 @@
             <h6>Nilai Semester 5</h6>
             <input type="number" name="semester_5" value="{{ old('semester_5') }}" class="form-control" >
             @error('semester_5')
+            <div class="alert alert-danger mt-1 mb-1">{{ $message }}</div>
+            @enderror
+            </div>
+            </div>
+            <div class="col-xs-6 col-sm-6 col-md-6 mt-3">
+            <div class="form-group">
+            <h6>Bukti Rapor Semeter 1-5</h6>
+            <input type="file" name="bukti_rapor" value="{{ old('bukti_rapor') }}" class="form-control" >
+            @error('bukti_rapor')
             <div class="alert alert-danger mt-1 mb-1">{{ $message }}</div>
             @enderror
             </div>

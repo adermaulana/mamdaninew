@@ -35,6 +35,7 @@
                 <th>Nama</th>
                 <th>Jurusan Diminati</th>
                 <th>Nilai Penjurusan</th>
+                <th>Pengumuman</th>
             </tr>
         </thead>
         <tbody>
@@ -50,6 +51,9 @@
             @else
             <td class="text-danger">{{ $data->nilai }} </td>
             @endif
+            <td>
+              <a class="btn btn-success" href="/send-email/{{ $data->id }}">Umumkan</a>
+            </td>
           </tr>
           @endforeach 
         </tbody>

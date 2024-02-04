@@ -57,15 +57,9 @@
         </li>
       </ul>
       @else
-        @if(Request::is('login'))
-        <li class="nav-item navbar-nav  mb-2 mb-lg-0">
-            <a class="btn btn-primary active" aria-current="page" href="/register"><i class="bi bi-box-arrow-in-right"></i>Register</a>
-          </li>
-        @else
         <li class="nav-item navbar-nav  mb-2 mb-lg-0">
             <a class="btn btn-primary active" aria-current="page" href="/login"><i class="bi bi-box-arrow-in-right"></i>Login</a>
           </li>
-        @endif
       @endauth
   </div>
 </nav>

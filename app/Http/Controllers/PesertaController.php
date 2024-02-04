@@ -73,8 +73,14 @@ class PesertaController extends Controller
      * @param  \App\Models\Peserta  $peserta
      * @return \Illuminate\Http\Response
      */
-    public function edit(Peserta $peserta)
+    public function edit($id)
     {
+        $peserta = Peserta::find($id);
+
+        return view('dashboard.peserta.edit',[
+            'title' => 'Edit Data',
+            'peserta' => $peserta
+        ]);
         //
     }
 
@@ -85,9 +91,23 @@ class PesertaController extends Controller
      * @param  \App\Models\Peserta  $peserta
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Peserta $peserta)
+    public function update(Request $request, $id)
     {
         //
+        $peserta = Peserta::FindOrFail($id);
+
+        $validateData = $request->validate([
+            'name' => 'required|max:255',
+            'email' => 'required',
+            'address' => 'required|max:255',
+            'number' => 'required|min:6|max:13'
+        ]);
+
+            Peserta::where('id',$peserta->id)
+            ->update($validateData);
+
+            return redirect()->route('peserta.index')
+            ->with('success','Data Peserta Berhasil Diubah!');
     }
 
     /**
@@ -96,8 +116,14 @@ class PesertaController extends Controller
      * @param  \App\Models\Peserta  $peserta
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Peserta $peserta)
+    public function destroy($id)
     {
         //
+        $peserta = Peserta::find($id);
+
+        Peserta::destroy($peserta->id);
+
+        return redirect()->route('peserta.index')
+        ->with('success','Data Berhasil Dihapus');
     }
 }

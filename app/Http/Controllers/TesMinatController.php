@@ -23,7 +23,7 @@ class TesMinatController extends Controller
     public function index()
     {
         
-        $peserta = HasilTes::all();
+        $peserta = HasilTes::latest()->get();
 
         return view('dashboard.tesminat.index',[
             'title' => 'Halaman Hasil Tes Jurusan',

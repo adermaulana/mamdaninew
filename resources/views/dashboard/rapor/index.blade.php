@@ -38,6 +38,7 @@
                 <th>Semester 3</th>
                 <th>Semester 4</th>
                 <th>Semester 5</th>
+                <th>Bukti Nilai Rapor</th>
             </tr>
         </thead>
         <tbody>
@@ -50,6 +51,9 @@
             <td>{{ $data->semester_3 }} </td>
             <td>{{ $data->semester_4 }} </td>
             <td>{{ $data->semester_5 }} </td>
+            <td><a href="{{ asset('storage/' . $data->bukti_rapor) }}" target="_blank" class="btn btn-success">Lihat</a>
+            <a href="{{ asset('storage/' . $data->bukti_rapor) }}" download="{{ $data->bukti_rapor }}" class="btn btn-danger">Unduh</a>
+          </td>
           </tr>
           @endforeach 
         </tbody>

@@ -7,11 +7,12 @@ use App\Models\TesMinat;
 use App\Models\Pernyataan;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\FISController;
+use App\Http\Controllers\MailController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\RaporController;
-use App\Http\Controllers\JurusanController;
 
 //Models
+use App\Http\Controllers\JurusanController;
 use App\Http\Controllers\PesertaController;
 use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\TesMinatController;
@@ -33,7 +34,8 @@ use App\Http\Controllers\UserPesertaController;
 Route::get('/', function () {
     return view('index',[
         'title' => 'Rekomendasi Jurusan SMKN 8 Jeneponto',
-        'active' => 'home'
+        'active' => 'home',
+        'pendaftar' => Peserta::count()
     ]);
 });
 
@@ -61,9 +63,6 @@ Route::get('/login', [LoginController::class,'index'])->name('login')->middlewar
 Route::post('/login', [LoginController::class,'authenticate']);
 Route::post('/logout', [LoginController::class,'logout']);
 
-//Registrasi
-Route::get('/register', [RegisterController::class,'index'])->middleware('guest');
-Route::post('/register', [RegisterController::class,'store']);
 
 //Pernyataan
 Route::resource('/dashboard/instrumen',PernyataanController::class)->middleware('auth');
@@ -90,6 +89,19 @@ Route::get('/halaman-tes/hasil',[HalamanTesController::class,'hasil'])->middlewa
 
 //HalamanPeserta
 Route::get('/profil',[UserPesertaController::class,'index'])->middleware(['auth:peserta,web']);
+Route::get('/profil/edit',[UserPesertaController::class,'edit'])->middleware(['auth:peserta,web']);
+Route::put('/profil/edit',[UserPesertaController::class,'update'])->middleware(['auth:peserta,web']);
+Route::get('/profil/edit-password',[UserPesertaController::class,'editPassword'])->middleware(['auth:peserta,web']);
+Route::put('/profil/edit-password',[UserPesertaController::class,'updatePassword'])->middleware(['auth:peserta,web']);
 
 //TesMetode
 Route::get('/tes-metode',[FISController::class,'test']);
+
+//Setelah Menjawab pernyataan
+Route::get('/terima-kasih', function(){
+    return view('terimakasih');
+});
+
+
+//Kirim ke Email peserta
+Route::get('send-email/{id}',[MailController::class,'sendMail'])->name('send-mail');

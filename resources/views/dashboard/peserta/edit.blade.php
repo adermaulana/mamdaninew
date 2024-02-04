@@ -27,7 +27,7 @@
 <div class="pull-left">
 </div>
 <div class="pull-right">
-<a class="btn btn-danger" href="{{ route('jurusan.index') }}" enctype="multipart/form-data"> Batal</a>
+<a class="btn btn-danger" href="{{ route('peserta.index') }}" enctype="multipart/form-data"> Batal</a>
 </div>
 </div>
 </div>
@@ -36,15 +36,42 @@
 {{ session('status') }}
 </div>
 @endif
-<form action="{{ route('jurusan.update',$jurusan->id) }}" method="POST" enctype="multipart/form-data">
+<form action="{{ route('peserta.update',$peserta->id) }}" method="POST" enctype="multipart/form-data">
 @csrf
 @method('PUT')
 <div class="row mt-3">
 <div class="col-xs-6 col-sm-6 col-md-6">
 <div class="form-group">
 <h6>Nama</h6>
-<input type="text" name="name" value="{{ old('name',$jurusan->name) }}" class="form-control" >
+<input type="text" name="name" value="{{ old('name', $peserta->name) }}" class="form-control" >
 @error('name')
+<div class="alert alert-danger mt-1 mb-1">{{ $message }}</div>
+@enderror
+</div>
+</div>
+<div class="col-xs-6 col-sm-6 col-md-6">
+<div class="form-group">
+<h6>Email</h6>
+<input type="email" name="email" value="{{ old('email', $peserta->email) }}" class="form-control" >
+@error('email')
+<div class="alert alert-danger mt-1 mb-1">{{ $message }}</div>
+@enderror
+</div>
+</div>
+<div class="col-xs-6 col-sm-6 col-md-6">
+<div class="form-group">
+<h6>Alamat</h6>
+<input type="text" name="address" value="{{ old('address', $peserta->address) }}" class="form-control" >
+@error('address')
+<div class="alert alert-danger mt-1 mb-1">{{ $message }}</div>
+@enderror
+</div>
+</div>
+<div class="col-xs-6 col-sm-6 col-md-6">
+<div class="form-group">
+<h6>No. Telepon</h6>
+<input type="number" name="number" value="{{ old('number', $peserta->number) }}" class="form-control" >
+@error('number')
 <div class="alert alert-danger mt-1 mb-1">{{ $message }}</div>
 @enderror
 </div>

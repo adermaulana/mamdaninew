@@ -39,8 +39,15 @@ class HalamanTesController extends Controller
             'semester_2' => 'required',
             'semester_3' => 'required',
             'semester_4' => 'required',
-            'semester_5' => 'required'
+            'semester_5' => 'required',
+            'bukti_rapor' => 'file|max:10240',
         ]);
+
+        if($request->bukti_rapor) {
+            $file = $request->bukti_rapor->getClientOriginalName();
+            $images = $request->bukti_rapor->storeAs('file', $file);
+            $validatedData['bukti_rapor'] = $images;
+        }
         
         $validatedData['peserta_id'] = auth('peserta')->user()->id;
         $request->session()->put('form_filled', true);
@@ -182,16 +189,7 @@ class HalamanTesController extends Controller
         ]);
         
 
-        return view('tes.hasil',[
-            'title' => 'Halaman Hasil Tes Jurusan',
-            'subtitle' => 'Tes Jurusan',
-            'peserta' => $peserta,
-            'hasiljurusan' => $jurusanTerbanyak->name,
-            'hasilpernyataan' => $hasilpernyataan,
-            'jumlah_jurusan' => $jurusanTerbanyak->total_pernyataan,
-            'active' => 'hasil',
-            'hasil' => $result  
-        ]);
+        return view('terimakasih');
 
     }
 

@@ -54,7 +54,6 @@
     
         <button style="background-color:#ccd5ae;" id="button" class="w-100 btn btn-lg " type="submit">Login</button>
       </form>
-      <small style="margin-bottom:102px;" class="d-block text-center mt-3">Not registered? <a class=" text-decoration-none" href="/register">Register Now!</a></small>
     </main>
   </div>
 </div>

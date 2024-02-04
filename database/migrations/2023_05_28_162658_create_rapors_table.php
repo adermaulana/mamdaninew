@@ -21,6 +21,7 @@ class CreateRaporsTable extends Migration
             $table->float('semester_3')->nullable();
             $table->float('semester_4')->nullable();
             $table->float('semester_5')->nullable();
+            $table->string('bukti_rapor')->nullable();
             $table->timestamps();
 
             $table->foreign('peserta_id')

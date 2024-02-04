@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Rapor;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 
 class RaporController extends Controller
 {
@@ -85,4 +86,5 @@ class RaporController extends Controller
     {
         //
     }
+
 }

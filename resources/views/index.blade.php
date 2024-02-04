@@ -27,16 +27,8 @@
         <a class="button btn red" href="/halaman-tes/rapor">Coba Tes Sekarang</a>
         <div class="row mt-4">
             <div class="col col-3">
-                <h2>300</h2>
-                <h6>Pendaftar</h6>
-            </div>
-            <div class="col col-3">
-                <h2>300</h2>
-                <h6>Pendaftar</h6>
-            </div>
-            <div class="col col-3">
-                <h2>300</h2>
-                <h6>Pendaftar</h6>
+              <h6>Total Pendaftar</h6>
+              <h2>{{ $pendaftar }}</h2>
             </div>
         </div>
       </div>
