@@ -21,7 +21,6 @@
         <li>php artisan migrate (migrasi database)</li>
         <li>php artisan db:seed</li>
         <li>php artisan storage:link ( agar file pdf masuk ke public ) </li>
-
-    </ul>
+     </ul>
 </body>
 </html>
