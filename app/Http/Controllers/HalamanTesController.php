@@ -20,6 +20,14 @@ class HalamanTesController extends Controller
 
     public function rapor(){
 
+        $userId = auth('peserta')->user()->id;
+
+        $accessCount = HasilTes::where('peserta_id', $userId)->count();
+
+        if ($accessCount > 0) {
+            return redirect('/')->with('error','Anda sudah melakukan Tes! Jika ada kesalahan dalam tes Anda Silahkan hubungi Admin.');
+        }
+
         if (!Auth::guard('peserta')) {
             // Jika auth admin, tampilkan pemberitahuan
             session()->flash('error', 'Anda adalah Admin tidak bisa melakukan tes!');

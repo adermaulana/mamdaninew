@@ -28,15 +28,15 @@ class MailController extends Controller
             $mail->isSMTP();
             $mail->Host = 'smtp.gmail.com';             //  smtp host
             $mail->SMTPAuth = true;
-            $mail->Username = 'rekomendasijurusan@gmail.com';   //  sender username
-            $mail->Password = 'zcet axnx uddz glpk';       // sender password
+            $mail->Username = 'adermaulana15@gmail.com';   //  sender username
+            $mail->Password = 'xnxg zbyj akmn ysul';       // sender password
             $mail->SMTPSecure = 'ssl';                  // encryption - ssl/tls
             $mail->Port = 465;                          // port - 587/465
 
-            $mail->setFrom('rekomendasijurusan@gmail.com', 'rekomendasijurusan@gmail.com');
+            $mail->setFrom('adermaulana15@gmail.com', 'adermaulana15@gmail.com');
             $mail->addAddress($email);
 
-            $mail->addReplyTo('rekomendasijurusan@gmail.com', 'rekomendasijurusan@gmail.com');
+            $mail->addReplyTo('adermaulana15@gmail.com', 'adermaulana15@gmail.com');
 
 
             $mail->isHTML(true);                // Set email content format to HTML
