@@ -7,7 +7,7 @@
       <!-- Grid row -->
       <div style="background-color:#0652dd; color:#e9edc9;" class="row mt-5">
         <!-- Grid column -->
-        <div class="col-md-6 col-lg-6 col-xl-3 mx-auto mb-2 mt-4">
+        <div class="col-md-6 col-lg-6 col-xl-4 mx-auto mb-2 mt-4">
           <!-- Content -->
           <h1 class="text-uppercase fw-bold mb-4 ">
             {{ $subtitle }} 
